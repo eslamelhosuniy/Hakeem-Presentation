@@ -1,0 +1,3481 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HAKEEM Scout Talent - Pitch Deck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===========================
+           BASE & PRESENTATION FRAME
+        =========================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reveal {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* The outer presentation "room" */
+        .reveal .slides {
+            background: transparent;
+        }
+
+        /* Every slide is a PPT card */
+        .reveal .slides>section {
+            background: var(--navy);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px var(--border),
+                0 30px 80px rgba(0, 0, 0, 0.5);
+            padding: 0 !important;
+            width: 100%;
+            height: 100%;
+            display: flex !important;
+            flex-direction: column;
+            color: var(--text);
+        }
+
+        /* ===========================
+           COLOR TOKENS & TYPOGRAPHY
+        =========================== */
+        :root {
+            /* Colors */
+            --bg: #0a0a1a;
+            --navy: #0d1b3e;
+            --navy-mid: #112150;
+            --navy-light: #1a2f6a;
+            --blue: #2d7ef7;
+            --blue-glow: #4facfe;
+            --cyan: #00c6ff;
+            --gold: #fca311;
+            --white: #ffffff;
+            --text: #ffffff;
+            --muted: #8fa8c8;
+            --border: rgba(100, 160, 255, 0.18);
+            --card-bg: rgba(255, 255, 255, 0.04);
+
+            /* Typography Scales */
+            --fs-hero: 3.8em;
+            --fs-h1: 2.8em;
+            --fs-h2: 1.8em;
+            --fs-h3: 1.0em;
+            --fs-p: 0.75em;
+            --fs-label: 0.55em;
+            --fs-small: 0.45em;
+            --fs-icon-lg: 2.5em;
+            --fs-icon-md: 1.2em;
+        }
+
+        :root[data-theme="light"] {
+            --bg: #eef2f6;
+            --navy: #ffffff;
+            --navy-mid: #f8f9fa;
+            --navy-light: #e9ecef;
+            --blue: #0d6efd;
+            --blue-glow: #0a58ca;
+            --cyan: #0dcaf0;
+            --gold: #fd7e14;
+            --white: #ffffff;
+            --text: #212529;
+            --muted: #6c757d;
+            --border: rgba(0, 0, 0, 0.1);
+            --card-bg: rgba(0, 0, 0, 0.03);
+        }
+
+        /* ===========================
+           SLIDE HEADER BAND
+        =========================== */
+        .slide-header {
+            background: linear-gradient(90deg, rgba(45, 126, 247, 0.15) 0%, rgba(13, 27, 62, 0) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 48px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        .slide-header .section-label {
+            font-size: 0.55em;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--blue-glow);
+        }
+
+        .slide-header .slide-title-text {
+            font-size: 1.05em;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .slide-header .title-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(45, 126, 247, 0.2);
+            border: 1px solid rgba(45, 126, 247, 0.4);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            color: var(--blue-glow);
+            flex-shrink: 0;
+        }
+
+        /* ===========================
+           SLIDE BODY
+        =========================== */
+        .slide-body {
+            flex: 1;
+            padding: 36px 48px 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ===========================
+           SLIDE FOOTER
+        =========================== */
+        .slide-footer {
+            border-top: 1px solid var(--border);
+            padding: 12px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-footer .footer-brand {
+            font-size: 0.55em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--blue-glow);
+        }
+
+        .slide-footer .footer-page {
+            font-size: 0.45em;
+            color: var(--muted);
+        }
+
+        .slide-footer .footer-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .slide-footer .footer-dots span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .slide-footer .footer-dots span.active {
+            background: var(--blue-glow);
+        }
+
+        /* ===========================
+           TYPOGRAPHY
+        =========================== */
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4 {
+            font-family: 'Inter', sans-serif;
+            text-transform: none;
+            color: var(--white);
+        }
+
+        /* ===========================
+           UTILITY CLASSES
+        =========================== */
+        .text-blue {
+            color: var(--blue-glow);
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-muted {
+            color: var(--muted);
+        }
+
+        .text-white {
+            color: var(--white);
+        }
+
+        .fw-300 {
+            font-weight: 300;
+        }
+
+        .fw-600 {
+            font-weight: 600;
+        }
+
+        .fw-700 {
+            font-weight: 700;
+        }
+
+        .fw-800 {
+            font-weight: 800;
+        }
+
+        .fw-900 {
+            font-weight: 900;
+        }
+
+        /* Cards */
+        .ppt-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 22px;
+        }
+
+        .ppt-card.accent-blue {
+            border-top: 3px solid var(--blue);
+        }
+
+        .ppt-card.accent-gold {
+            border-top: 3px solid var(--gold);
+        }
+
+        .ppt-card.accent-cyan {
+            border-top: 3px solid var(--cyan);
+        }
+
+        .ppt-card.accent-green {
+            border-top: 3px solid #00e676;
+        }
+
+        /* Left-bordered callout */
+        .callout {
+            border-left: 4px solid var(--gold);
+            background: rgba(252, 163, 17, 0.07);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 20px;
+        }
+
+        .callout.blue {
+            border-left-color: var(--blue);
+            background: rgba(45, 126, 247, 0.07);
+        }
+
+        /* Pill tag */
+        .pill {
+            display: inline-block;
+            font-size: 0.5em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--blue-glow);
+            border: 1px solid rgba(79, 172, 254, 0.4);
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin: 3px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* List */
+        .reveal ul.ppt-list {
+            list-style: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .reveal ul.ppt-list li {
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            margin-bottom: 12px;
+            font-size: 0.72em;
+            color: #cce0ff;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .reveal ul.ppt-list li .li-icon {
+            font-size: 1.3em;
+            color: var(--blue-glow);
+            min-width: 22px;
+            text-align: center;
+            margin-top: 1px;
+        }
+
+        /* Pipeline arrow flow */
+        .pipeline {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .pipeline-step {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 12px;
+            text-align: center;
+            position: relative;
+            font-size: 0.6em;
+        }
+
+        .pipeline-step+.pipeline-step {
+            margin-left: 8px;
+        }
+
+        .pipeline-step::after {
+            content: '›';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: var(--blue);
+            z-index: 2;
+        }
+
+        .pipeline-step:last-child::after {
+            display: none;
+        }
+
+        /* Reveal animation overrides */
+        .reveal .fragment.fade-up {
+            transition: all 0.5s ease;
+        }
+
+        /* Icon circle */
+        .icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+        }
+
+        .icon-circle.blue {
+            background: rgba(45, 126, 247, 0.2);
+            color: var(--blue-glow);
+            border: 1px solid rgba(45, 126, 247, 0.4);
+        }
+
+        .icon-circle.gold {
+            background: rgba(252, 163, 17, 0.2);
+            color: var(--gold);
+            border: 1px solid rgba(252, 163, 17, 0.4);
+        }
+
+        .icon-circle.cyan {
+            background: rgba(0, 198, 255, 0.15);
+            color: var(--cyan);
+            border: 1px solid rgba(0, 198, 255, 0.3);
+        }
+
+        .icon-circle.green {
+            background: rgba(0, 230, 118, 0.15);
+            color: #00e676;
+            border: 1px solid rgba(0, 230, 118, 0.3);
+        }
+
+        .icon-circle.purple {
+            background: rgba(180, 0, 255, 0.15);
+            color: #ce90ff;
+            border: 1px solid rgba(180, 0, 255, 0.3);
+        }
+
+        /* Divider line */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            border-radius: 2px;
+            margin: 10px 0;
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            border-radius: 2px;
+        }
+
+        /* Table */
+        .ppt-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.62em;
+        }
+
+        .ppt-table th {
+            background: rgba(45, 126, 247, 0.2);
+            color: var(--blue-glow);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .ppt-table td {
+            padding: 9px 14px;
+            border: 1px solid var(--border);
+            color: #cce0ff;
+        }
+
+        .ppt-table tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .ppt-table .check {
+            color: #00e676;
+            font-weight: 700;
+        }
+
+        .ppt-table .cross {
+            color: #ff5252;
+        }
+
+        .ppt-table .partial {
+            color: var(--gold);
+        }
+
+        .ppt-table .hakeem-col {
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        /* Cover slide */
+        .cover-slide {
+            display: flex !important;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        /* Two-col layout */
+        .split-layout {
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .split-layout .col {
+            flex: 1;
+        }
+
+        .split-layout .col-4 {
+            flex: 0 0 40%;
+        }
+
+        /* Numbered badge */
+        .num-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--blue);
+            color: var(--blue-glow);
+            font-weight: 800;
+            font-size: 0.75em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Architecture stack */
+        .arch-layer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 10px;
+            background: var(--card-bg);
+            font-size: 0.68em;
+        }
+
+        .arch-layer .layer-icon {
+            font-size: 1.5em;
+            min-width: 36px;
+            text-align: center;
+        }
+
+        .arch-layer .layer-info {
+            flex: 1;
+        }
+
+        .arch-layer .layer-info strong {
+            display: block;
+            font-size: 1.05em;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+
+        .arch-layer .layer-info span {
+            color: var(--muted);
+        }
+
+        .arch-layer .layer-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .arch-layer .tag {
+            font-size: 0.75em;
+            padding: 2px 10px;
+            border-radius: 4px;
+            background: rgba(45, 126, 247, 0.15);
+            color: var(--blue-glow);
+            border: 1px solid rgba(45, 126, 247, 0.3);
+        }
+
+        /* Stat box */
+        .stat-box {
+            text-align: center;
+            padding: 20px 12px;
+        }
+
+        .stat-box .stat-num {
+            font-size: 2em;
+            font-weight: 900;
+            color: var(--blue-glow);
+            line-height: 1;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.55em;
+            color: var(--muted);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        /* Blue top accent for cover */
+        .cover-top-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue) 0%, var(--cyan) 50%, var(--gold) 100%);
+        }
+
+        /* Reveal controls styling */
+        .reveal .controls {
+            bottom: 30px;
+            right: 30px;
+        }
+
+        .reveal .progress {
+            height: 3px;
+            background: var(--blue);
+        }
+
+        .reveal .slide-number {
+            color: var(--muted);
+            font-size: 0.7em;
+        }
+
+        /* ===========================
+           IMAGE LIGHTBOX / ZOOM
+        =========================== */
+        /* Make all slide images zoomable */
+        .reveal .slides img {
+            cursor: zoom-in;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .reveal .slides img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.6), 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* Lightbox overlay */
+        #img-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.93);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            backdrop-filter: blur(4px);
+            animation: lbFadeIn 0.25s ease;
+        }
+
+        #img-lightbox.open {
+            display: flex;
+        }
+
+        @keyframes lbFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #img-lightbox img {
+            max-width: 95vw;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25), 0 30px 80px rgba(0, 0, 0, 0.8);
+            animation: lbScaleIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: default;
+        }
+
+        @keyframes lbScaleIn {
+            from {
+                transform: scale(0.85);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        #lb-close {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 100000;
+            transition: color 0.15s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        #lb-close:hover {
+            color: #fff;
+        }
+
+        #lb-caption {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7em;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        /* ===========================
+           SETTINGS PANEL
+        =========================== */
+        #settings-btn {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 9999;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(45, 126, 247, 0.25);
+            border: 1px solid rgba(45, 126, 247, 0.5);
+            color: #4facfe;
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            backdrop-filter: blur(6px);
+        }
+
+        #settings-btn:hover {
+            background: rgba(45, 126, 247, 0.5);
+        }
+
+        #settings-panel {
+            position: fixed;
+            top: 64px;
+            right: 16px;
+            z-index: 9998;
+            width: 260px;
+            background: rgba(13, 27, 62, 0.97);
+            border: 1px solid rgba(100, 160, 255, 0.2);
+            border-radius: 14px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            display: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #settings-panel.open {
+            display: block;
+        }
+
+        .sp-title {
+            font-size: 0.65em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #4facfe;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sp-row {
+            margin-bottom: 16px;
+        }
+
+        .sp-label {
+            font-size: 0.6em;
+            color: #8fa8c8;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sp-label span {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        input[type="range"].sp-range {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(100, 160, 255, 0.2);
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"].sp-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #4facfe;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
+        }
+
+        .sp-themes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .sp-theme-btn {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 160, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            color: #8fa8c8;
+            font-size: 0.55em;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .sp-theme-btn:hover,
+        .sp-theme-btn.active {
+            border-color: #4facfe;
+            background: rgba(45, 126, 247, 0.15);
+            color: #4facfe;
+        }
+
+        .sp-divider {
+            height: 1px;
+            background: rgba(100, 160, 255, 0.12);
+            margin: 14px 0;
+        }
+
+        .sp-shortcut {
+            font-size: 0.52em;
+            color: #8fa8c8;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .sp-shortcut kbd {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 1em;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== Floating Settings Button ===== -->
+    <button id="settings-btn" title="Presentation Settings">
+        <i class="fa-solid fa-sliders"></i>
+    </button>
+
+    <!-- ===== Settings Panel ===== -->
+    <div id="settings-panel">
+        <div class="sp-title"><i class="fa-solid fa-sliders"></i> Presentation Settings</div>
+
+        <!-- Typography Scales -->
+        <div class="sp-row">
+            <div class="sp-label">Header Size <span id="ts-head-val">100%</span></div>
+            <input type="range" class="sp-range" id="ts-head-slider" min="70" max="150" value="100" step="5">
+        </div>
+        <div class="sp-row">
+            <div class="sp-label">Text Size <span id="ts-body-val">100%</span></div>
+            <input type="range" class="sp-range" id="ts-body-slider" min="70" max="150" value="100" step="5">
+        </div>
+        <div class="sp-row">
+            <div class="sp-label">Label Size <span id="ts-label-val">100%</span></div>
+            <input type="range" class="sp-range" id="ts-label-slider" min="70" max="150" value="100" step="5">
+        </div>
+
+        <!-- Slide Scale -->
+        <div class="sp-row">
+            <div class="sp-label">Zoom <span id="zoom-val">100%</span></div>
+            <input type="range" class="sp-range" id="zoom-slider" min="60" max="130" value="100" step="5">
+        </div>
+
+        <div class="sp-divider"></div>
+
+        <!-- Theme presets -->
+        <div class="sp-row">
+            <div class="sp-label">Color Theme</div>
+            <div class="sp-themes">
+                <div class="sp-theme-btn active" onclick="applyTheme('navy')" id="t-navy">
+                    ◉ Navy Blue
+                </div>
+                <div class="sp-theme-btn" onclick="applyTheme('light')" id="t-light">
+                    ◉ Light Mode
+                </div>
+                <div class="sp-theme-btn" onclick="applyTheme('dark')" id="t-dark">
+                    ◉ Deep Black
+                </div>
+                <div class="sp-theme-btn" onclick="applyTheme('indigo')" id="t-indigo">
+                    ◉ Indigo
+                </div>
+                <div class="sp-theme-btn" onclick="applyTheme('slate')" id="t-slate">
+                    ◉ Slate Gray
+                </div>
+            </div>
+        </div>
+
+        <div class="sp-divider"></div>
+
+        <!-- Transition -->
+        <div class="sp-row">
+            <div class="sp-label">Transition Style</div>
+            <div class="sp-themes">
+                <div class="sp-theme-btn active" onclick="applyTransition('fade')" id="tr-fade">Fade</div>
+                <div class="sp-theme-btn" onclick="applyTransition('slide')" id="tr-slide">Slide</div>
+                <div class="sp-theme-btn" onclick="applyTransition('zoom')" id="tr-zoom">Zoom</div>
+                <div class="sp-theme-btn" onclick="applyTransition('none')" id="tr-none">None</div>
+            </div>
+        </div>
+
+        <div class="sp-shortcut"><kbd>S</kbd> to toggle this panel</div>
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Start of 01_cover.html -->
+            <!-- ============================================================
+     SLIDE 01 — Formal Academic Cover
+============================================================ -->
+            <section data-transition="fade">
+                <div class="cover-top-bar"></div>
+
+                <!-- Full cover layout -->
+                <div
+                    style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 40px 60px; text-align:center; position:relative; overflow:hidden;">
+
+                    <!-- Subtle background glow -->
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%, rgba(45,126,247,0.1) 0%, transparent 65%);pointer-events:none;">
+                    </div>
+
+                    <!-- Top: University branding row -->
+                    <div class="fragment fade-in"
+                        style="display:flex;align-items:center;justify-content:center;gap:40px;margin-bottom:30px;position:relative;z-index:1;">
+                        <!-- Matrouh University Logo -->
+                        <img src="logo.png"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                            style="height:90px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(79,172,254,0.3));"
+                            alt="Matrouh University">
+                        <div
+                            style="display:none;width:90px;height:90px;border-radius:50%;border:2px solid var(--border);background:var(--card-bg);align-items:center;justify-content:center;">
+                            <i class="fa-solid fa-university"
+                                style="font-size:var(--fs-h2);color:var(--blue-glow);"></i>
+                        </div>
+
+                        <!-- Vertical Divider -->
+                        <div style="width:1px;height:70px;background:var(--border);"></div>
+
+                        <!-- Faculty label -->
+                        <div style="text-align:left;">
+                            <p style="font-size:var(--fs-p);font-weight:700;color:var(--white);margin-bottom:4px;">
+                                Matrouh University</p>
+                            <p style="font-size:var(--fs-small);color:var(--muted);line-height:1.5;">Faculty of
+                                Computers<br>and Artificial
+                                Intelligence</p>
+                        </div>
+                    </div>
+
+                    <!-- Horizontal rule -->
+                    <div class="fragment fade-in"
+                        style="width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),var(--gold),transparent);margin-bottom:30px;position:relative;z-index:1;">
+                    </div>
+
+                    <!-- Graduation label -->
+                    <div class="fragment fade-in" style="position:relative;z-index:1;margin-bottom:16px;">
+                        <span
+                            style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-glow);">Graduation
+                            Project &nbsp;·&nbsp; Academic Year 2025 / 2026</span>
+                    </div>
+
+                    <!-- Project Title -->
+                    <div class="fragment fade-in"
+                        style="position:relative;z-index:1;margin-bottom:10px;display:flex;flex-direction:column;align-items:center;">
+                        <img src="hakeem_logo.png"
+                            style="height:100px;object-fit:contain;margin-bottom:12px;filter:drop-shadow(0 0 15px rgba(0,198,255,0.3));border-radius: 50%;"
+                            alt="HAKEEM Logo">
+                        <h1 style="font-size:var(--fs-h1);font-weight:900;line-height:1.1;">
+                            <span style="color:var(--text);">HAKEEM</span><span style="color:var(--blue-glow);"> Scout
+                                Talent</span>
+                        </h1>
+                    </div>
+
+                    <div class="fragment fade-in" style="position:relative;z-index:1;margin-bottom:30px;">
+                        <p style="font-size:var(--fs-p);color:var(--muted);font-weight:300;">An AI-Powered Talent
+                            Acquisition and Job
+                            Matching Platform</p>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="fragment fade-in"
+                        style="width:80px;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:2px;margin:0 auto 28px;position:relative;z-index:1;">
+                    </div>
+
+                    <!-- Team grid -->
+                    <div class="fragment fade-in" style="position:relative;z-index:1;width:100%;max-width:820px;">
+                        <p
+                            style="font-size:var(--fs-small);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">
+                            Submitted By</p>
+                        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px 24px;text-align:left;">
+                            <div
+                                style="font-size:var(--fs-small);color:var(--white);padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border);">
+                                <i class="fa-solid fa-user-graduate"
+                                    style="color:var(--blue-glow);margin-right:7px;"></i>Mohamed
+                                Mostafa Abd-elaziz
+                            </div>
+                            <div
+                                style="font-size:var(--fs-small);color:var(--white);padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border);">
+                                <i class="fa-solid fa-user-graduate"
+                                    style="color:var(--blue-glow);margin-right:7px;"></i>Eslam
+                                Elhosiny Mostafa Gaber
+                            </div>
+                            <div
+                                style="font-size:var(--fs-small);color:var(--white);padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border);">
+                                <i class="fa-solid fa-user-graduate"
+                                    style="color:var(--blue-glow);margin-right:7px;"></i>Farha
+                                Ashraf El-Domyatii
+                            </div>
+                            <div
+                                style="font-size:var(--fs-small);color:var(--white);padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border);">
+                                <i class="fa-solid fa-user-graduate"
+                                    style="color:var(--blue-glow);margin-right:7px;"></i>Hazem
+                                Khaled El-Sayed Azmy
+                            </div>
+                            <div
+                                style="font-size:var(--fs-small);color:var(--white);padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border);">
+                                <i class="fa-solid fa-user-graduate"
+                                    style="color:var(--blue-glow);margin-right:7px;"></i>Abdelrahman Gomaa Elshazly
+                            </div>
+                            <div
+                                style="font-size:var(--fs-small);color:var(--white);padding:6px 10px;background:var(--card-bg);border-radius:6px;border:1px solid var(--border);">
+                                <i class="fa-solid fa-user-graduate"
+                                    style="color:var(--blue-glow);margin-right:7px;"></i>Filopater
+                                Fayq
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supervisor -->
+                    <div class="fragment fade-in" style="position:relative;z-index:1;margin-top:22px;">
+                        <p style="font-size:var(--fs-small);color:var(--muted);margin-bottom:4px;">Supervised By</p>
+                        <p style="font-size:var(--fs-p);font-weight:700;color:var(--gold);">Dr. Noha El-Shoafy</p>
+                    </div>
+                </div>
+            </section>
+            <!-- End of 01_cover.html -->
+
+            <!-- Start of 02_who_question.html -->
+            <!-- ============================================================
+     SLIDE 02 — Who Are We? (Interactive Reveal)
+============================================================ -->
+            <section data-transition="fade">
+                <style>
+                    /* Custom animation for the moving question */
+                    #who-question {
+                        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    }
+
+                    #who-question.moved-up {
+                        transform: translateY(-160px);
+                        font-size: var(--fs-h2) !important;
+                        color: var(--muted) !important;
+                    }
+
+                    #who-answer {
+                        opacity: 0;
+                        transform: translateY(30px);
+                        transition: all 0.7s ease 0.2s;
+                    }
+
+                    #who-answer.visible {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+
+                    #who-arrow {
+                        animation: bounceDown 1.2s ease-in-out infinite;
+                        display: inline-block;
+                    }
+
+                    @keyframes bounceDown {
+
+                        0%,
+                        100% {
+                            transform: translateY(0);
+                        }
+
+                        50% {
+                            transform: translateY(10px);
+                        }
+                    }
+                </style>
+
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                    <!-- Glow background -->
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(45,126,247,0.08) 0%, transparent 70%);pointer-events:none;">
+                    </div>
+
+                    <!-- The main question — starts centered -->
+                    <div id="who-question" style="text-align:center;position:relative;z-index:2;">
+                        <h1 style="font-size:var(--fs-h1);font-weight:900;color:var(--white);letter-spacing:-1px;">Who
+                            Are We?</h1>
+                    </div>
+
+                    <!-- Answer that appears after click -->
+                    <div id="who-answer" style="text-align:center;position:relative;z-index:2;margin-top:50px;">
+                        <p style="font-size:var(--fs-h2);font-weight:300;color:var(--muted);margin-bottom:20px;">Let's
+                            Find Out</p>
+                        <div id="who-arrow" style="font-size:var(--fs-h2);color:var(--blue-glow);">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Custom handler for this slide's animation
+                    Reveal.on('slidechanged', function (event) {
+                        // Reset on leaving
+                        const q = document.getElementById('who-question');
+                        const a = document.getElementById('who-answer');
+                        if (q) { q.classList.remove('moved-up'); }
+                        if (a) { a.classList.remove('visible'); }
+                    });
+
+                    // Track click state for slide 02
+                    let whoClicked = false;
+                    document.addEventListener('keydown', function (e) {
+                        const cur = Reveal.getCurrentSlide();
+                        if (!cur) return;
+                        const q = cur.querySelector('#who-question');
+                        if (!q) return;
+                        if ((e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') && !whoClicked) {
+                            e.stopImmediatePropagation();
+                            whoClicked = true;
+                            q.classList.add('moved-up');
+                            setTimeout(() => {
+                                const a = cur.querySelector('#who-answer');
+                                if (a) a.classList.add('visible');
+                            }, 500);
+                        } else {
+                            whoClicked = false;
+                        }
+                    }, true);
+                </script>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 03 — The Real Question (Word-by-Word)
+============================================================ -->
+            <section data-transition="fade">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,198,255,0.07) 0%, transparent 70%);pointer-events:none;">
+                    </div>
+
+                    <!-- Pre-question label -->
+                    <p class="fragment fade-in"
+                        style="font-size:var(--fs-p);color:var(--muted);font-weight:300;margin-bottom:40px;letter-spacing:1px;">
+                        Before Introducing Ourselves...
+                    </p>
+
+                    <!-- Main question — words appear one by one via fragments -->
+                    <div style="position:relative;z-index:1;max-width:800px;">
+                        <h2 style="font-size:var(--fs-h2);font-weight:300;color:var(--muted);margin-bottom:16px;">
+                            <span class="fragment fade-in">In the age of</span>
+                            <span class="fragment fade-in" style="color:var(--blue-glow);font-weight:700;"> Artificial
+                                Intelligence...</span>
+                        </h2>
+                        <h1 style="font-size:var(--fs-h2);font-weight:900;color:var(--white);line-height:1.4;">
+                            <span class="fragment fade-in">Why does</span>
+                            <span class="fragment fade-in"> the talent acquisition</span>
+                            <span class="fragment fade-in"> problem</span>
+                            <span class="fragment fade-in" style="color:var(--gold);"> still exist?</span>
+                        </h1>
+                    </div>
+
+                    <!-- Transition -->
+                    <div class="fragment fade-in" style="margin-top:60px;position:relative;z-index:1;">
+                        <div style="width:60px;height:2px;background:var(--border);margin:0 auto 30px;"></div>
+                        <p style="font-size:var(--fs-p);color:var(--muted);margin-bottom:12px;">To answer that...</p>
+                        <p style="font-size:var(--fs-h3);color:var(--white);font-weight:600;">Let's look at both sides
+                            of the story.</p>
+                        <div style="margin-top:20px;display:flex;justify-content:center;gap:20px;">
+                            <div
+                                style="display:flex;align-items:center;gap:10px;background:var(--card-bg);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:var(--fs-label);color:var(--muted);">
+                                <i class="fa-solid fa-user" style="color:var(--blue-glow);"></i> Candidate
+                            </div>
+                            <i class="fa-solid fa-arrows-left-right"
+                                style="color:var(--border);font-size:var(--fs-h2);margin-top:10px;"></i>
+                            <div
+                                style="display:flex;align-items:center;gap:10px;background:var(--card-bg);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:var(--fs-label);color:var(--muted);">
+                                <i class="fa-solid fa-building" style="color:var(--gold);"></i> Employer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- End of 02_who_question.html -->
+
+            <!-- Start of 03_candidate_employer.html -->
+            <!-- ============================================================
+     SLIDE 04 — The Candidate's Story
+============================================================ -->
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-user"></i></div>
+                    <div>
+                        <p class="section-label">Storytelling</p>
+                        <p class="slide-title-text">The Candidate's Story</p>
+                    </div>
+                </div>
+
+                <div class="slide-body" style="flex-direction:row;gap:0;padding:0;overflow:hidden;">
+                    <!-- Left: Illustration panel -->
+                    <div
+                        style="width:320px;flex-shrink:0;background:rgba(0,0,0,0.25);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:30px;">
+                        <div
+                            style="width:120px;height:120px;border-radius:50%;background:rgba(45,126,247,0.1);border:2px solid rgba(45,126,247,0.3);display:flex;align-items:center;justify-content:center;">
+                            <i class="fa-solid fa-user-tie" style="font-size:var(--fs-h1);color:var(--blue-glow);"></i>
+                        </div>
+                        <div style="text-align:center;">
+                            <p style="font-size:var(--fs-p);font-weight:700;color:var(--white);">Ahmed, 24</p>
+                            <p style="font-size:var(--fs-label);color:var(--muted);">Fresh Graduate<br>Computer Science
+                            </p>
+                        </div>
+                        <div
+                            style="width:60px;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:2px;">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;font-size:var(--fs-small);color:var(--muted);">
+                                <span>Applications Sent</span><span
+                                    style="color:var(--white);font-weight:700;">47</span>
+                            </div>
+                            <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;">
+                                <div style="width:90%;height:100%;background:var(--blue);border-radius:2px;"></div>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;font-size:var(--fs-small);color:var(--muted);">
+                                <span>Responses Received</span><span style="color:var(--gold);font-weight:700;">3</span>
+                            </div>
+                            <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;">
+                                <div style="width:6%;height:100%;background:var(--gold);border-radius:2px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Bullet reveal -->
+                    <div style="flex:1;padding:30px 40px;display:flex;flex-direction:column;justify-content:center;">
+                        <ul class="ppt-list" style="margin:0;">
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-paper-plane li-icon"></i>
+                                <span style="color:var(--muted);">Applies to <strong style="color:var(--white);">dozens
+                                        of jobs</strong> without knowing if they are a good fit.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-comment-slash li-icon"></i>
+                                <span style="color:var(--muted);">Receives <strong style="color:var(--white);">little or
+                                        no feedback</strong> — often left in the dark.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-eye-slash li-icon"></i>
+                                <span style="color:var(--muted);">Qualified candidates are <strong
+                                        style="color:var(--white);">frequently overlooked</strong> by automated
+                                    filters.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-magnifying-glass li-icon"></i>
+                                <span style="color:var(--muted);">ATS systems rely heavily on <strong
+                                        style="color:var(--white);">keywords</strong>, not actual skill.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-ghost li-icon" style="color:var(--gold);"></i>
+                                <span style="color:var(--muted);">A strong candidate may <strong
+                                        style="color:var(--gold);">never be seen</strong> by the right recruiter.</span>
+                            </li>
+                        </ul>
+
+                        <div class="fragment fade-up"
+                            style="margin-top:20px;padding:16px 20px;background:rgba(45,126,247,0.08);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;">
+                            <p style="font-size:var(--fs-p);color:var(--white);font-style:italic;line-height:1.6;">
+                                "Talent exists...<br>But <strong style="color:var(--blue-glow);">opportunity doesn't
+                                    always find it.</strong>"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer">
+                    <span class="footer-brand">HAKEEM</span>
+                    <span class="footer-page">The Problem · Candidate Side</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 05 — The Employer's Story
+============================================================ -->
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(252,163,17,0.2);border-color:rgba(252,163,17,0.4);color:var(--gold);"><i
+                            class="fa-solid fa-building"></i></div>
+                    <div>
+                        <p class="section-label">Storytelling</p>
+                        <p class="slide-title-text">The Employer's Story</p>
+                    </div>
+                </div>
+
+                <div class="slide-body" style="flex-direction:row;gap:0;padding:0;overflow:hidden;">
+                    <!-- Left: Illustration panel -->
+                    <div
+                        style="width:320px;flex-shrink:0;background:rgba(0,0,0,0.25);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:30px;">
+                        <div
+                            style="width:120px;height:120px;border-radius:50%;background:rgba(252,163,17,0.1);border:2px solid rgba(252,163,17,0.3);display:flex;align-items:center;justify-content:center;">
+                            <i class="fa-solid fa-user-nurse" style="font-size:var(--fs-h1);color:var(--gold);"></i>
+                        </div>
+                        <div style="text-align:center;">
+                            <p style="font-size:var(--fs-p);font-weight:700;color:var(--white);">Sara, HR Manager</p>
+                            <p style="font-size:var(--fs-label);color:var(--muted);">Tech Company<br>200+ Employees</p>
+                        </div>
+                        <div
+                            style="width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan));border-radius:2px;">
+                        </div>
+
+                        <!-- Timeline visual -->
+                        <div style="width:100%;font-size:var(--fs-small);color:var(--muted);">
+                            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+                                <div
+                                    style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;">
+                                </div>
+                                <span>Job posted</span><span style="margin-left:auto;color:var(--white);">Day 1</span>
+                            </div>
+                            <div style="width:1px;height:16px;background:var(--border);margin-left:3px;"></div>
+                            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+                                <div
+                                    style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0;">
+                                </div>
+                                <span>Reviewing CVs</span><span style="margin-left:auto;color:var(--white);">Day
+                                    3</span>
+                            </div>
+                            <div style="width:1px;height:16px;background:var(--border);margin-left:3px;"></div>
+                            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+                                <div
+                                    style="width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0;">
+                                </div>
+                                <span>Still reviewing...</span><span style="margin-left:auto;color:var(--muted);">Day
+                                    12</span>
+                            </div>
+                            <div style="width:1px;height:16px;background:var(--border);margin-left:3px;"></div>
+                            <div style="display:flex;gap:8px;align-items:center;">
+                                <div
+                                    style="width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0;">
+                                </div>
+                                <span>Hired someone</span><span style="margin-left:auto;color:var(--muted);">Day
+                                    28</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Bullet reveal -->
+                    <div style="flex:1;padding:30px 40px;display:flex;flex-direction:column;justify-content:center;">
+                        <ul class="ppt-list" style="margin:0;">
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-inbox li-icon" style="color:var(--gold);"></i>
+                                <span style="color:var(--muted);">Receives <strong style="color:var(--white);">hundreds
+                                        or thousands</strong> of applications for a single role.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-clock li-icon" style="color:var(--gold);"></i>
+                                <span style="color:var(--muted);">Manual screening consumes an average of <strong
+                                        style="color:var(--gold);">23 hours per hire</strong>.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-scale-unbalanced li-icon"></i>
+                                <span style="color:var(--muted);">Hiring bias can <strong
+                                        style="color:var(--white);">affect decisions</strong> without consistent
+                                    evaluation criteria.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-question-circle li-icon"></i>
+                                <span style="color:var(--muted);">Difficult to assess <strong
+                                        style="color:var(--white);">true skills</strong> from a CV alone.</span>
+                            </li>
+                            <li class="fragment fade-up">
+                                <i class="fa-solid fa-sack-dollar li-icon" style="color:var(--gold);"></i>
+                                <span style="color:var(--muted);">Recruitment costs <strong
+                                        style="color:var(--white);">continue to rise</strong> with no guarantee of
+                                    quality hires.</span>
+                            </li>
+                        </ul>
+
+                        <div class="fragment fade-up"
+                            style="margin-top:20px;padding:16px 20px;background:rgba(252,163,17,0.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;">
+                            <p style="font-size:var(--fs-p);color:var(--white);font-style:italic;line-height:1.6;">
+                                "Companies need talent...<br>But <strong style="color:var(--gold);">finding it isn't
+                                    easy.</strong>"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer">
+                    <span class="footer-brand">HAKEEM</span>
+                    <span class="footer-page">The Problem · Employer Side</span>
+                </div>
+            </section>
+
+            <!-- End of 03_candidate_employer.html -->
+
+            <!-- Start of 04_gap_reveal.html -->
+            <!-- ============================================================
+     SLIDE 06 — The Gap (Bridge Effect)
+============================================================ -->
+            <section data-transition="fade" data-background-color="#070e24">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:50px;position:relative;overflow:hidden;">
+
+                    <!-- Subtle grid lines for depth -->
+                    <div
+                        style="position:absolute;inset:0;background-image:linear-gradient(rgba(45,126,247,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(45,126,247,0.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;">
+                    </div>
+
+                    <!-- Title -->
+                    <p class="fragment fade-in"
+                        style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:50px;position:relative;z-index:1;">
+                        The Problem · The Gap</p>
+
+                    <!-- Bridge layout -->
+                    <div
+                        style="display:flex;align-items:center;justify-content:center;gap:0;width:100%;position:relative;z-index:1;">
+
+                        <!-- Left: Candidates -->
+                        <div class="fragment fade-right"
+                            style="flex:1;text-align:center;padding:30px 20px;background:rgba(45,126,247,0.08);border:1px solid rgba(45,126,247,0.25);border-radius:12px 0 0 12px;border-right:none;">
+                            <div class="icon-circle blue"
+                                style="margin:0 auto 14px;width:64px;height:64px;font-size:var(--fs-h2);">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h3 style="font-size:var(--fs-h3);font-weight:800;color:var(--white);margin-bottom:10px;">
+                                Candidates</h3>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Skilled,
+                                motivated,<br>ready to contribute</p>
+                        </div>
+
+                        <!-- Center: The Gap -->
+                        <div style="min-width:220px;text-align:center;position:relative;">
+                            <!-- Gap visual with broken bridge -->
+                            <div class="fragment fade-in"
+                                style="width:100%;height:4px;background:linear-gradient(90deg,rgba(45,126,247,0.6),transparent 45%,transparent 55%,rgba(252,163,17,0.6));position:relative;">
+                                <div
+                                    style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#070e24;padding:0 8px;">
+                                    <i class="fa-solid fa-bolt" style="color:var(--muted);font-size:var(--fs-p);"></i>
+                                </div>
+                            </div>
+
+                            <div class="fragment fade-up" style="margin-top:20px;">
+                                <p style="font-size:var(--fs-p);font-weight:700;color:var(--muted);letter-spacing:1px;">
+                                    THE GAP</p>
+                                <div
+                                    style="padding:10px 14px;margin:10px auto;background:rgba(255,255,255,0.03);border:1px dashed var(--border);border-radius:8px;max-width:160px;">
+                                    <p style="font-size:var(--fs-small);color:var(--muted);line-height:1.5;">
+                                        Fragmented<br>Inefficient<br>Disconnected</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Companies -->
+                        <div class="fragment fade-left"
+                            style="flex:1;text-align:center;padding:30px 20px;background:rgba(252,163,17,0.08);border:1px solid rgba(252,163,17,0.25);border-radius:0 12px 12px 0;border-left:none;">
+                            <div class="icon-circle gold"
+                                style="margin:0 auto 14px;width:64px;height:64px;font-size:var(--fs-h2);">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <h3 style="font-size:var(--fs-h3);font-weight:800;color:var(--white);margin-bottom:10px;">
+                                Companies</h3>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Hiring,
+                                growing,<br>in need of talent</p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom text -->
+                    <div class="fragment fade-up"
+                        style="margin-top:40px;text-align:center;position:relative;z-index:1;">
+                        <p style="font-size:var(--fs-p);color:var(--white);font-weight:600;margin-bottom:10px;">Both
+                            sides are looking for each other...</p>
+                        <p style="font-size:var(--fs-p);color:var(--muted);margin-bottom:24px;">But the process is still
+                            <strong style="color:var(--gold);">inefficient</strong>.</p>
+                    </div>
+
+                    <div class="fragment fade-up" style="position:relative;z-index:1;">
+                        <div
+                            style="display:inline-block;padding:12px 30px;background:rgba(45,126,247,0.15);border:1px solid rgba(45,126,247,0.4);border-radius:100px;font-size:var(--fs-p);font-weight:700;color:var(--blue-glow);">
+                            There must be a better way.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 07 — Cinematic Solution Reveal
+============================================================ -->
+            <section data-transition="fade" data-background-color="#040910">
+                <style>
+                    .reveal-logo {
+                        opacity: 0;
+                        transform: scale(0.5);
+                        transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    }
+
+                    .reveal-logo.shown {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                </style>
+
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+
+                    <!-- Background radial glow -->
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(45,126,247,0.15) 0%, transparent 60%);pointer-events:none;">
+                    </div>
+
+                    <!-- Intro sentence -->
+                    <p class="fragment fade-in"
+                        style="font-size:var(--fs-h3);font-weight:300;color:var(--muted);margin-bottom:50px;font-style:italic;position:relative;z-index:1;">
+                        And that's where our solution comes in...
+                    </p>
+
+                    <!-- Logo box (zoom in) -->
+                    <div class="fragment fade-in" style="position:relative;z-index:1;margin-bottom:30px;">
+                        <img src="hakeem_logo.png"
+                            style="height:120px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(0,198,255,0.4));border-radius:50%;"
+                            alt="HAKEEM Logo">
+                    </div>
+
+                    <!-- HAKEEM name -->
+                    <h1 class="fragment fade-in"
+                        style="font-size:var(--fs-hero);font-weight:900;color:var(--white);letter-spacing:-2px;position:relative;z-index:1;margin-bottom:6px;">
+                        HAKEEM</h1>
+
+                    <!-- Subtitle -->
+                    <h2 class="fragment fade-in"
+                        style="font-size:var(--fs-h2);font-weight:600;color:var(--blue-glow);margin-bottom:20px;position:relative;z-index:1;">
+                        Scout Talent</h2>
+
+                    <!-- Tagline -->
+                    <p class="fragment fade-in"
+                        style="font-size:var(--fs-p);color:var(--muted);max-width:500px;line-height:1.7;position:relative;z-index:1;">
+                        An AI-Powered Talent Acquisition and Job Matching Platform
+                    </p>
+
+                    <!-- Accent line -->
+                    <div class="fragment fade-in"
+                        style="width:120px;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:2px;margin:30px auto 0;position:relative;z-index:1;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- End of 04_gap_reveal.html -->
+
+            <!-- Start of 05_5_divider_problem.html -->
+            <!-- ============================================================
+     SLIDE — Divider: The Problem
+============================================================ -->
+            <section data-transition="zoom" data-background-color="var(--bg)">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(252,163,17,0.15) 0%, transparent 60%);pointer-events:none;">
+                    </div>
+                    <div class="cover-top-bar" style="position:absolute;top:0;left:0;right:0;"></div>
+
+                    <div style="position:relative;z-index:1;">
+                        <div class="icon-circle gold"
+                            style="width:72px;height:72px;font-size:var(--fs-h2);margin:0 auto 24px;">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <p
+                            style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">
+                            The Challenge</p>
+                        <h2 style="font-size:var(--fs-h1);font-weight:900;color:var(--text);margin-bottom:16px;">Why Do
+                            We Need HAKEEM?</h2>
+                        <div class="divider" style="margin:0 auto;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- End of 05_5_divider_problem.html -->
+
+            <!-- Start of 05_mission_features_transition.html -->
+            <!-- ============================================================
+     SLIDE 08 — Mission Slide
+============================================================ -->
+            <section data-transition="fade">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,198,255,0.07) 0%, transparent 65%);pointer-events:none;">
+                    </div>
+
+                    <!-- Label -->
+                    <p
+                        style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-glow);margin-bottom:24px;position:relative;z-index:1;">
+                        The Question We Wanted To Answer</p>
+
+                    <!-- Main question -->
+                    <div style="max-width:780px;position:relative;z-index:1;margin-bottom:40px;">
+                        <div
+                            style="padding:32px 40px;background:var(--card-bg);border:1px solid var(--border);border-radius:14px;position:relative;">
+                            <i class="fa-solid fa-quote-left"
+                                style="position:absolute;top:16px;left:20px;font-size:var(--fs-h2);color:rgba(45,126,247,0.25);"></i>
+                            <p
+                                style="font-size:var(--fs-h3);font-weight:600;color:var(--white);line-height:1.7;font-style:italic;">
+                                "How can we make the recruitment process<br>
+                                <span style="color:var(--blue-glow);">smarter</span>,
+                                <span style="color:var(--cyan);">faster</span>, and
+                                <span style="color:var(--gold);">more efficient</span><br>
+                                for both sides?"
+                            </p>
+                            <i class="fa-solid fa-quote-right"
+                                style="position:absolute;bottom:16px;right:20px;font-size:var(--fs-h2);color:rgba(45,126,247,0.25);"></i>
+                        </div>
+                    </div>
+
+                    <!-- Arrow down -->
+                    <div class="fragment fade-in" style="position:relative;z-index:1;margin-bottom:24px;">
+                        <i class="fa-solid fa-chevron-down"
+                            style="font-size:var(--fs-h2);color:var(--border);animation:bounceDown 1.2s ease-in-out infinite;"></i>
+                    </div>
+
+                    <!-- Answer 1 -->
+                    <div class="fragment fade-in" style="position:relative;z-index:1;margin-bottom:12px;">
+                        <p style="font-size:var(--fs-h3);font-weight:800;color:var(--white);">HAKEEM is our answer.</p>
+                    </div>
+
+                    <!-- Answer 2 -->
+                    <div class="fragment fade-in" style="position:relative;z-index:1;">
+                        <p style="font-size:var(--fs-p);color:var(--muted);">Connecting the right candidate with the
+                            right opportunity through <strong style="color:var(--blue-glow);">Artificial
+                                Intelligence</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="slide-footer">
+                    <span class="footer-brand">HAKEEM</span>
+                    <span class="footer-page">Mission</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 09 — What Is Hakeem? (Feature-by-Feature)
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div>
+                        <p class="section-label">Platform Overview</p>
+                        <p class="slide-title-text">What Is Hakeem?</p>
+                    </div>
+                </div>
+
+                <div class="slide-body" style="justify-content:center;">
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:100%;">
+                        <div class="fragment fade-up ppt-card accent-blue"
+                            style="display:flex;align-items:center;gap:14px;padding:18px 20px;">
+                            <div class="icon-circle blue" style="flex-shrink:0;"><i class="fa-solid fa-brain"></i></div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:3px;">AI-Powered Matching
+                                </h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Semantic CV-to-Job &
+                                    Job-to-Candidate scoring</p>
+                            </div>
+                        </div>
+
+                        <div class="fragment fade-up ppt-card accent-cyan"
+                            style="display:flex;align-items:center;gap:14px;padding:18px 20px;">
+                            <div class="icon-circle cyan" style="flex-shrink:0;"><i class="fa-solid fa-folder-open"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:3px;">CV Management</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Upload, manage, and track your
+                                    resume</p>
+                            </div>
+                        </div>
+
+                        <div class="fragment fade-up ppt-card"
+                            style="display:flex;align-items:center;gap:14px;padding:18px 20px;border-top:3px solid #00e676;">
+                            <div class="icon-circle green" style="flex-shrink:0;"><i class="fa-solid fa-filter"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:3px;">Recruitment
+                                    Pipeline</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">6-stage tracking: Screening →
+                                    Hired</p>
+                            </div>
+                        </div>
+
+                        <div class="fragment fade-up ppt-card accent-gold"
+                            style="display:flex;align-items:center;gap:14px;padding:18px 20px;">
+                            <div class="icon-circle gold" style="flex-shrink:0;"><i
+                                    class="fa-solid fa-calendar-check"></i></div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:3px;">Interview
+                                    Management</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Schedule, conduct, and evaluate
+                                    interviews</p>
+                            </div>
+                        </div>
+
+                        <div class="fragment fade-up ppt-card"
+                            style="display:flex;align-items:center;gap:14px;padding:18px 20px;border-top:3px solid #ce90ff;">
+                            <div class="icon-circle purple" style="flex-shrink:0;"><i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:3px;">Real-Time
+                                    Notifications</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Instant WebSocket-powered
+                                    updates</p>
+                            </div>
+                        </div>
+
+                        <div class="fragment fade-up ppt-card accent-blue"
+                            style="display:flex;align-items:center;gap:14px;padding:18px 20px;">
+                            <div class="icon-circle blue" style="flex-shrink:0;"><i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:3px;">Job Offers &amp;
+                                    Tracking</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Send, receive, and track job
+                                    offers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fragment fade-up" style="margin-top:24px;text-align:center;">
+                        <p style="font-size:var(--fs-p);color:var(--white);font-weight:700;">One Platform. &nbsp;<span
+                                style="color:var(--blue-glow);">One Recruitment Journey.</span></p>
+                    </div>
+                </div>
+
+                <div class="slide-footer">
+                    <span class="footer-brand">HAKEEM</span>
+                    <span class="footer-page">Platform Features</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 10 — Transition to Academic Content
+============================================================ -->
+            <section data-transition="slide">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(45,126,247,0.07) 0%, transparent 65%);pointer-events:none;">
+                    </div>
+
+                    <!-- Icon -->
+                    <div style="margin-bottom:30px;position:relative;z-index:1;">
+                        <div class="icon-circle blue"
+                            style="width:72px;height:72px;font-size:var(--fs-h2);margin:0 auto;">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                    </div>
+
+                    <p
+                        style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-glow);margin-bottom:16px;position:relative;z-index:1;">
+                        Academic Section</p>
+
+                    <h2
+                        style="font-size:var(--fs-h2);font-weight:900;color:var(--white);margin-bottom:20px;position:relative;z-index:1;">
+                        Now Let's Define The Problem</h2>
+
+                    <p
+                        style="font-size:var(--fs-p);color:var(--muted);max-width:500px;line-height:1.8;position:relative;z-index:1;margin-bottom:40px;">
+                        Before building the solution, we first analyzed the challenges facing both employers and job
+                        seekers.
+                    </p>
+
+                    <i class="fa-solid fa-chevron-down"
+                        style="font-size:var(--fs-h2);color:var(--border);position:relative;z-index:1;animation:bounceDown 1.2s ease-in-out infinite;margin-bottom:30px;"></i>
+
+                    <!-- Academic roadmap pills -->
+                    <div class="fragment fade-in"
+                        style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;z-index:1;max-width:700px;">
+                        <span class="pill" style="font-size:var(--fs-small);">Problem Statement</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Objectives</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Importance</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Target Users</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Market Comparison</span>
+                        <span class="pill" style="font-size:var(--fs-small);">System Architecture</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Database Design</span>
+                        <span class="pill" style="font-size:var(--fs-small);">AI Engine</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Technologies</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Demo</span>
+                        <span class="pill" style="font-size:var(--fs-small);">Conclusion</span>
+                    </div>
+                </div>
+
+                <div class="slide-footer">
+                    <span class="footer-brand">HAKEEM</span>
+                    <span class="footer-page">Academic Content Begins</span>
+                </div>
+            </section>
+
+            <!-- End of 05_mission_features_transition.html -->
+
+            <!-- Start of 06_problem_objectives.html -->
+            <!-- ============================================================
+     SLIDE 11 — Problem Statement (Academic)
+============================================================ -->
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                    <div>
+                        <p class="section-label">1.1 Problem Statement</p>
+                        <p class="slide-title-text">Finding the Right Fit Takes Too Long</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="split-layout">
+                        <div class="col">
+                            <div class="fragment fade-up ppt-card accent-blue" style="margin-bottom:16px;">
+                                <div
+                                    style="display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);">
+                                    <div class="icon-circle blue"
+                                        style="flex-shrink:0;width:40px;height:40px;font-size:var(--fs-h3);"><i
+                                            class="fa-solid fa-building"></i></div>
+                                    <h4 style="font-size:var(--fs-p);font-weight:700;">From the Employer's Perspective
+                                    </h4>
+                                </div>
+                                <ul style="list-style:none;padding:0;font-size:var(--fs-label);color:var(--muted);">
+                                    <li style="padding:5px 0;"><i class="fa-solid fa-dot-circle"
+                                            style="color:var(--blue-glow);margin-right:8px;"></i>Avg. <strong
+                                            style="color:var(--white);">23 hours</strong> screening resumes per hire
+                                    </li>
+                                    <li style="padding:5px 0;"><i class="fa-solid fa-dot-circle"
+                                            style="color:var(--blue-glow);margin-right:8px;"></i>Thousands of
+                                        applications, inconsistent criteria</li>
+                                    <li style="padding:5px 0;"><i class="fa-solid fa-dot-circle"
+                                            style="color:var(--blue-glow);margin-right:8px;"></i>Prolonged time-to-hire
+                                        and elevated costs</li>
+                                </ul>
+                            </div>
+
+                            <div class="fragment fade-up ppt-card accent-gold">
+                                <div
+                                    style="display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);">
+                                    <div class="icon-circle gold"
+                                        style="flex-shrink:0;width:40px;height:40px;font-size:var(--fs-h3);"><i
+                                            class="fa-solid fa-user"></i></div>
+                                    <h4 style="font-size:var(--fs-p);font-weight:700;">From the Job Seeker's Perspective
+                                    </h4>
+                                </div>
+                                <ul style="list-style:none;padding:0;font-size:var(--fs-label);color:var(--muted);">
+                                    <li style="padding:5px 0;"><i class="fa-solid fa-dot-circle"
+                                            style="color:var(--gold);margin-right:8px;"></i>Minimal feedback, opaque
+                                        application status</li>
+                                    <li style="padding:5px 0;"><i class="fa-solid fa-dot-circle"
+                                            style="color:var(--gold);margin-right:8px;"></i>No guidance on suitable
+                                        roles</li>
+                                    <li style="padding:5px 0;"><i class="fa-solid fa-dot-circle"
+                                            style="color:var(--gold);margin-right:8px;"></i>Fragmented tools create data
+                                        silos</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col fragment fade-in" style="display:flex;align-items:center;">
+                            <div class="ppt-card"
+                                style="width:100%;text-align:center;padding:32px;border-top:3px solid var(--cyan);">
+                                <div class="icon-circle cyan"
+                                    style="margin:0 auto 16px;width:60px;height:60px;font-size:var(--fs-h2);"><i
+                                        class="fa-solid fa-link-slash"></i></div>
+                                <h3
+                                    style="font-size:var(--fs-h3);font-weight:700;margin-bottom:14px;color:var(--white);">
+                                    The Core Problem</h3>
+                                <p
+                                    style="font-size:var(--fs-label);color:var(--muted);line-height:1.7;margin-bottom:18px;">
+                                    Most platforms treat these as <strong style="color:var(--white);">separate
+                                        problems</strong> — job boards on one side, recruitment tools on the other.</p>
+                                <div
+                                    style="padding:12px;background:rgba(0,198,255,0.07);border-radius:8px;border:1px solid rgba(0,198,255,0.2);">
+                                    <p
+                                        style="font-size:var(--fs-label);color:var(--cyan);font-weight:600;line-height:1.5;">
+                                        Scout Talent addresses these challenges through a single, cohesive AI-powered
+                                        platform.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">01 / Problem
+                        Statement</span></div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 12 — Project Objectives
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <div>
+                        <p class="section-label">1.2 Project Objectives</p>
+                        <p class="slide-title-text">Core System Objectives</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="grid-2" style="gap:14px;">
+                        <div class="fragment fade-up ppt-card accent-blue"
+                            style="display:flex;gap:14px;padding:16px 18px;align-items:flex-start;">
+                            <div class="num-badge" style="flex-shrink:0;">1</div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);margin-bottom:4px;">Role-Based Web Platform</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Applicants, Companies, Admins —
+                                    all in one cohesive workspace.</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-up ppt-card accent-gold"
+                            style="display:flex;gap:14px;padding:16px 18px;align-items:flex-start;">
+                            <div class="num-badge" style="border-color:var(--gold);color:var(--gold);flex-shrink:0;">2
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);margin-bottom:4px;">AI Recommendation Engine</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">CV-to-Job and Job-to-Candidate
+                                    bi-directional matching.</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-up ppt-card accent-cyan"
+                            style="display:flex;gap:14px;padding:16px 18px;align-items:flex-start;">
+                            <div class="num-badge" style="border-color:var(--cyan);color:var(--cyan);flex-shrink:0;">3
+                            </div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);margin-bottom:4px;">Six-Stage Pipeline</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">New → Screening → Interview →
+                                    Offered → Hired / Rejected.</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-up ppt-card accent-blue"
+                            style="display:flex;gap:14px;padding:16px 18px;align-items:flex-start;">
+                            <div class="num-badge" style="flex-shrink:0;">4</div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);margin-bottom:4px;">Real-Time Notifications</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">WebSocket-powered instant
+                                    status updates.</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-up ppt-card"
+                            style="display:flex;gap:14px;padding:16px 18px;align-items:flex-start;border-top:3px solid #ce90ff;">
+                            <div class="num-badge" style="border-color:#ce90ff;color:#ce90ff;flex-shrink:0;">5</div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);margin-bottom:4px;">Secure Authentication</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Email/Password + Google OAuth2
+                                    + JWT + RBAC.</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-up ppt-card"
+                            style="display:flex;gap:14px;padding:16px 18px;align-items:flex-start;border-top:3px solid #00e676;">
+                            <div class="num-badge" style="border-color:#00e676;color:#00e676;flex-shrink:0;">6</div>
+                            <div>
+                                <h4 style="font-size:var(--fs-p);margin-bottom:4px;">Cloud Infrastructure</h4>
+                                <p style="font-size:var(--fs-label);color:var(--muted);">Railway + Vercel with rate
+                                    limiting and security hardening.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">02 /
+                        Objectives</span></div>
+            </section>
+
+            <!-- End of 06_problem_objectives.html -->
+
+            <!-- Start of 07_5_divider_tech.html -->
+            <!-- ============================================================
+     SLIDE — Divider: Technology & Architecture
+============================================================ -->
+            <section data-transition="zoom" data-background-color="var(--bg)">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,198,255,0.15) 0%, transparent 60%);pointer-events:none;">
+                    </div>
+                    <div class="cover-top-bar" style="position:absolute;top:0;left:0;right:0;"></div>
+
+                    <div style="position:relative;z-index:1;">
+                        <div class="icon-circle cyan"
+                            style="width:72px;height:72px;font-size:var(--fs-h2);margin:0 auto 24px;">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <p
+                            style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;">
+                            Under The Hood</p>
+                        <h2 style="font-size:var(--fs-h1);font-weight:900;color:var(--text);margin-bottom:16px;">
+                            Technology & Architecture</h2>
+                        <div class="divider" style="margin:0 auto;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- End of 07_5_divider_tech.html -->
+
+            <!-- Start of 07_importance_users_comparison.html -->
+            <!-- ============================================================
+     SLIDE 13 — Importance
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-star"></i></div>
+                    <div>
+                        <p class="section-label">1.3 Importance of the System</p>
+                        <p class="slide-title-text">Why Scout Talent Matters</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="grid-4">
+                        <div class="fragment fade-up ppt-card" style="text-align:center;border-top:3px solid #00e676;">
+                            <div class="icon-circle green"
+                                style="margin:0 auto 14px;width:50px;height:50px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-chart-line"></i></div>
+                            <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:10px;color:#00e676;">Economic
+                            </h4>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Reduces
+                                cost-per-hire in a <strong style="color:var(--white);">$2.3B</strong> global market with
+                                <strong style="color:var(--white);">6.7% CAGR</strong>.</p>
+                        </div>
+                        <div class="fragment fade-up ppt-card"
+                            style="text-align:center;border-top:3px solid var(--cyan);">
+                            <div class="icon-circle cyan"
+                                style="margin:0 auto 14px;width:50px;height:50px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-scale-balanced"></i></div>
+                            <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:10px;color:var(--cyan);">
+                                Social</h4>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Democratizes access
+                                & reduces bias via <strong style="color:var(--white);">true skill-based</strong>
+                                matching.</p>
+                        </div>
+                        <div class="fragment fade-up ppt-card" style="text-align:center;border-top:3px solid #ce90ff;">
+                            <div class="icon-circle purple"
+                                style="margin:0 auto 14px;width:50px;height:50px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-microchip"></i></div>
+                            <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:10px;color:#ce90ff;">
+                                Technical</h4>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Applies advanced
+                                <strong style="color:var(--white);">NLP & Vector analysis</strong> in a production-grade
+                                system.</p>
+                        </div>
+                        <div class="fragment fade-up ppt-card"
+                            style="text-align:center;border-top:3px solid var(--gold);">
+                            <div class="icon-circle gold"
+                                style="margin:0 auto 14px;width:50px;height:50px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-graduation-cap"></i></div>
+                            <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:10px;color:var(--gold);">
+                                Academic</h4>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Modular
+                                architecture, async tasks, <strong style="color:var(--white);">AI/ML
+                                    integration</strong> — a full-stack case study.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">03 /
+                        Importance</span></div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 14 — Target Users
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <div>
+                        <p class="section-label">1.4 Target Users</p>
+                        <p class="slide-title-text">Designed for Every Stakeholder</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="grid-3">
+                        <div class="fragment fade-up ppt-card accent-blue" style="text-align:center;">
+                            <div class="icon-circle blue"
+                                style="margin:0 auto 16px;width:60px;height:60px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-user-tie"></i></div>
+                            <h3 style="font-size:var(--fs-h3);font-weight:700;margin-bottom:14px;">Candidates</h3>
+                            <ul style="list-style:none;padding:0;text-align:left;">
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check"
+                                        style="color:var(--blue-glow);margin-right:8px;"></i>Create & manage
+                                    professional profile</li>
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check"
+                                        style="color:var(--blue-glow);margin-right:8px;"></i>Upload and manage CVs</li>
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check"
+                                        style="color:var(--blue-glow);margin-right:8px;"></i>AI-powered job
+                                    recommendations</li>
+                                <li style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;"><i
+                                        class="fa-solid fa-check"
+                                        style="color:var(--blue-glow);margin-right:8px;"></i>Real-time application
+                                    tracking</li>
+                            </ul>
+                        </div>
+
+                        <div class="fragment fade-up ppt-card accent-gold" style="text-align:center;">
+                            <div class="icon-circle gold"
+                                style="margin:0 auto 16px;width:60px;height:60px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-building-user"></i></div>
+                            <h3 style="font-size:var(--fs-h3);font-weight:700;margin-bottom:14px;">Companies</h3>
+                            <ul style="list-style:none;padding:0;text-align:left;">
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check" style="color:var(--gold);margin-right:8px;"></i>Post &
+                                    manage job listings</li>
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check"
+                                        style="color:var(--gold);margin-right:8px;"></i>AI-powered candidate suggestions
+                                </li>
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check"
+                                        style="color:var(--gold);margin-right:8px;"></i>Schedule & conduct interviews
+                                </li>
+                                <li style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;"><i
+                                        class="fa-solid fa-check" style="color:var(--gold);margin-right:8px;"></i>Send &
+                                    manage job offers</li>
+                            </ul>
+                        </div>
+
+                        <div class="fragment fade-up ppt-card" style="text-align:center;border-top:3px solid #ce90ff;">
+                            <div class="icon-circle purple"
+                                style="margin:0 auto 16px;width:60px;height:60px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-shield-halved"></i></div>
+                            <h3 style="font-size:var(--fs-h3);font-weight:700;margin-bottom:14px;">System Admins</h3>
+                            <ul style="list-style:none;padding:0;text-align:left;">
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check" style="color:#ce90ff;margin-right:8px;"></i>Monitor
+                                    platform health & content</li>
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check" style="color:#ce90ff;margin-right:8px;"></i>Manage user
+                                    accounts</li>
+                                <li
+                                    style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);">
+                                    <i class="fa-solid fa-check" style="color:#ce90ff;margin-right:8px;"></i>Configure
+                                    subscription plans</li>
+                                <li style="font-size:var(--fs-label);color:var(--muted);padding:6px 0;"><i
+                                        class="fa-solid fa-check" style="color:#ce90ff;margin-right:8px;"></i>Full
+                                    analytics & revenue dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">04 / Target
+                        Users</span></div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 15 — Market Comparison
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-chess-knight"></i></div>
+                    <div>
+                        <p class="section-label">2.2 Market Comparison</p>
+                        <p class="slide-title-text">The Competitive Edge</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="fragment fade-in">
+                        <table class="ppt-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>LinkedIn</th>
+                                    <th>Indeed</th>
+                                    <th>Greenhouse</th>
+                                    <th>Workable</th>
+                                    <th style="background:rgba(0,198,255,0.15);color:var(--cyan);">HAKEEM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AI CV Matching</td>
+                                    <td class="partial">Partial</td>
+                                    <td class="partial">Basic</td>
+                                    <td class="cross">No</td>
+                                    <td class="partial">Partial</td>
+                                    <td class="check hakeem-col">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>AI Candidate Suggestions</td>
+                                    <td class="partial">Partial</td>
+                                    <td class="cross">No</td>
+                                    <td class="cross">No</td>
+                                    <td class="check">Yes</td>
+                                    <td class="check hakeem-col">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Integrated Pipeline</td>
+                                    <td class="cross">No</td>
+                                    <td class="cross">No</td>
+                                    <td class="check">Yes</td>
+                                    <td class="check">Yes</td>
+                                    <td class="check hakeem-col">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Real-Time WebSocket Notifications</td>
+                                    <td class="cross">No</td>
+                                    <td class="cross">No</td>
+                                    <td class="cross">No</td>
+                                    <td class="cross">No</td>
+                                    <td class="check hakeem-col">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Structured Feedback</td>
+                                    <td class="cross">No</td>
+                                    <td class="cross">No</td>
+                                    <td class="check">Yes</td>
+                                    <td class="partial">Partial</td>
+                                    <td class="check hakeem-col">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Google OAuth</td>
+                                    <td class="cross">No</td>
+                                    <td class="cross">No</td>
+                                    <td class="check">Yes</td>
+                                    <td class="check">Yes</td>
+                                    <td class="check hakeem-col">Yes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="fragment fade-up callout blue"
+                        style="margin-top:18px;display:flex;align-items:center;gap:14px;">
+                        <i class="fa-solid fa-trophy" style="font-size:var(--fs-h2);color:var(--gold);"></i>
+                        <p style="font-size:var(--fs-p);color:var(--white);">HAKEEM is the <strong>only
+                                platform</strong> that combines WebSocket real-time notifications + bi-directional AI
+                            matching + complete pipeline management in a single integrated system.</p>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">05 / Market
+                        Comparison</span></div>
+            </section>
+
+            <!-- End of 07_importance_users_comparison.html -->
+
+            <!-- Start of 08_architecture_ai.html -->
+            <!-- ============================================================
+     SLIDE 16 — System Architecture
+============================================================ -->
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <div>
+                        <p class="section-label">3.1 System Architecture</p>
+                        <p class="slide-title-text">Four-Layer Architecture Overview</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="split-layout">
+                        <div class="col">
+                            <div class="fragment fade-up arch-layer" style="border-left:4px solid var(--blue);">
+                                <div class="layer-icon" style="color:var(--blue-glow);"><i
+                                        class="fa-brands fa-react"></i></div>
+                                <div class="layer-info"><strong>Presentation Layer</strong><span>React 19 SPA ·
+                                        TypeScript · Vite 7</span></div>
+                                <div class="layer-tags"><span class="tag">Vercel</span><span
+                                        class="tag">Socket.IO</span></div>
+                            </div>
+                            <div style="text-align:center;color:var(--border);font-size:var(--fs-h2);margin:4px 0;"><i
+                                    class="fa-solid fa-arrows-up-down"></i></div>
+                            <div class="fragment fade-up arch-layer" style="border-left:4px solid #00e676;">
+                                <div class="layer-icon" style="color:#00e676;"><i class="fa-brands fa-node-js"></i>
+                                </div>
+                                <div class="layer-info"><strong>Application Layer</strong><span>NestJS 11 · 18 Modules ·
+                                        TypeScript</span></div>
+                                <div class="layer-tags"><span class="tag">Railway</span><span class="tag">BullMQ</span>
+                                </div>
+                            </div>
+                            <div style="text-align:center;color:var(--border);font-size:var(--fs-h2);margin:4px 0;"><i
+                                    class="fa-solid fa-arrows-up-down"></i></div>
+                            <div class="fragment fade-up arch-layer" style="border-left:4px solid var(--gold);">
+                                <div class="layer-icon" style="color:var(--gold);"><i class="fa-solid fa-database"></i>
+                                </div>
+                                <div class="layer-info"><strong>Data Layer</strong><span>PostgreSQL · Redis ·
+                                        Cloudinary</span></div>
+                                <div class="layer-tags"><span class="tag">22+ Entities</span><span
+                                        class="tag">Pub/Sub</span></div>
+                            </div>
+                            <div style="text-align:center;color:var(--border);font-size:var(--fs-h2);margin:4px 0;"><i
+                                    class="fa-solid fa-arrows-up-down"></i></div>
+                            <div class="fragment fade-up arch-layer" style="border-left:4px solid #ce90ff;">
+                                <div class="layer-icon" style="color:#ce90ff;"><i class="fa-brands fa-python"></i></div>
+                                <div class="layer-info"><strong>AI & External Services</strong><span>Python Microservice
+                                        · Qdrant VectorDB</span></div>
+                                <div class="layer-tags"><span class="tag">SendGrid</span><span class="tag">Google
+                                        OAuth</span></div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 fragment fade-up" style="display:flex;align-items:center;">
+                            <div class="ppt-card" style="width:100%;text-align:center;padding:28px;">
+                                <p
+                                    style="font-size:var(--fs-label);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue-glow);margin-bottom:18px;">
+                                    Key Design Principles</p>
+                                <div style="display:flex;flex-direction:column;gap:12px;text-align:left;">
+                                    <div
+                                        style="display:flex;align-items:center;gap:10px;font-size:var(--fs-label);color:var(--muted);">
+                                        <i class="fa-solid fa-cube"
+                                            style="color:var(--blue-glow);width:16px;"></i>Modular & Scalable Backend
+                                    </div>
+                                    <div
+                                        style="display:flex;align-items:center;gap:10px;font-size:var(--fs-label);color:var(--muted);">
+                                        <i class="fa-solid fa-shield"
+                                            style="color:var(--blue-glow);width:16px;"></i>Security-First (Helmet, RBAC,
+                                        Throttler)</div>
+                                    <div
+                                        style="display:flex;align-items:center;gap:10px;font-size:var(--fs-label);color:var(--muted);">
+                                        <i class="fa-solid fa-bolt"
+                                            style="color:var(--blue-glow);width:16px;"></i>Asynchronous Task Processing
+                                        (BullMQ)</div>
+                                    <div
+                                        style="display:flex;align-items:center;gap:10px;font-size:var(--fs-label);color:var(--muted);">
+                                        <i class="fa-solid fa-cloud"
+                                            style="color:var(--blue-glow);width:16px;"></i>Cloud-Native Deployment
+                                        (Railway + Vercel)</div>
+                                    <div
+                                        style="display:flex;align-items:center;gap:10px;font-size:var(--fs-label);color:var(--muted);">
+                                        <i class="fa-solid fa-brain"
+                                            style="color:var(--blue-glow);width:16px;"></i>Isolated AI Microservice with
+                                        VectorDB</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">06 /
+                        Architecture</span></div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 17 — Frontend & Backend Deep Dive
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-code"></i></div>
+                    <div>
+                        <p class="section-label">3.2 & 3.3 Frontend & Backend</p>
+                        <p class="slide-title-text">Core Technologies Deep Dive</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="grid-2">
+                        <div class="ppt-card accent-blue">
+                            <div
+                                style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);">
+                                <i class="fa-brands fa-react"
+                                    style="font-size:var(--fs-h2);color:var(--blue-glow);"></i>
+                                <h3 style="font-size:var(--fs-h3);font-weight:700;">Presentation Layer</h3>
+                            </div>
+                            <ul style="list-style:none;padding:0;font-size:var(--fs-label);">
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span
+                                        style="color:var(--blue-glow);min-width:90px;font-weight:600;">Framework</span>React
+                                    19 + Vite 7 + TypeScript</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span
+                                        style="color:var(--blue-glow);min-width:90px;font-weight:600;">Routing</span>AuthRoute
+                                    + ProtectedRoute (role-based)</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span
+                                        style="color:var(--blue-glow);min-width:90px;font-weight:600;">HTTP</span>Axios-based
+                                    services per domain</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span
+                                        style="color:var(--blue-glow);min-width:90px;font-weight:600;">WebSocket</span>Socket.IO
+                                    Client (persistent)</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;color:var(--muted);display:flex;gap:10px;"><span
+                                        style="color:var(--blue-glow);min-width:90px;font-weight:600;">Pages</span>40+
+                                    pages across 5 directories</li>
+                            </ul>
+                        </div>
+
+                        <div class="ppt-card" style="border-top:3px solid #00e676;">
+                            <div
+                                style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);">
+                                <i class="fa-brands fa-node-js" style="font-size:var(--fs-h2);color:#00e676;"></i>
+                                <h3 style="font-size:var(--fs-h3);font-weight:700;">Application Layer</h3>
+                            </div>
+                            <ul style="list-style:none;padding:0;font-size:var(--fs-label);">
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span style="color:#00e676;min-width:90px;font-weight:600;">Framework</span>NestJS
+                                    11 — 18 domain modules</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span style="color:#00e676;min-width:90px;font-weight:600;">Auth</span>JWT + Google
+                                    OAuth2 + RBAC</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span style="color:#00e676;min-width:90px;font-weight:600;">Queue</span>BullMQ async
+                                    task processing</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px;">
+                                    <span style="color:#00e676;min-width:90px;font-weight:600;">Security</span>Helmet +
+                                    Throttler (10 req/60s)</li>
+                                <li class="fragment fade-in"
+                                    style="padding:8px 0;color:var(--muted);display:flex;gap:10px;"><span
+                                        style="color:#00e676;min-width:90px;font-weight:600;">AI
+                                        Modules</span>RecommendAiModule + RecommendAiCompanyModule</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">07 / Tech
+                        Stack</span></div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE 18 — AI Microservice
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <p class="section-label">3.4 AI Engine</p>
+                        <p class="slide-title-text">Hakeem AI Microservice</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="split-layout">
+                        <div class="col">
+                            <ul class="ppt-list">
+                                <li class="fragment fade-up">
+                                    <i class="fa-brands fa-python li-icon" style="color:#ce90ff;"></i>
+                                    <div><strong style="color:var(--white);display:block;margin-bottom:4px;">Core
+                                            Technology</strong>
+                                        <span style="color:var(--muted);">Python 3.10+ processing <strong
+                                                style="color:var(--white);">Semantic Vector Embeddings</strong> via LLM
+                                            Provider Factory.</span>
+                                    </div>
+                                </li>
+                                <li class="fragment fade-up">
+                                    <i class="fa-solid fa-file-arrow-up li-icon"></i>
+                                    <div><strong style="color:var(--white);display:block;margin-bottom:4px;">CV-to-Job
+                                            Matching</strong>
+                                        <span style="color:var(--muted);">Recommends the most relevant job roles to
+                                            candidates based on their uploaded CV automatically.</span>
+                                    </div>
+                                </li>
+                                <li class="fragment fade-up">
+                                    <i class="fa-solid fa-clipboard-user li-icon" style="color:var(--gold);"></i>
+                                    <div><strong
+                                            style="color:var(--white);display:block;margin-bottom:4px;">Job-to-Candidate
+                                            Scoring</strong>
+                                        <span style="color:var(--muted);">Ranks and scores a full pool of applicants for
+                                            HR teams, eliminating manual review.</span>
+                                    </div>
+                                </li>
+                                <li class="fragment fade-up">
+                                    <i class="fa-solid fa-calculator li-icon" style="color:#00e676;"></i>
+                                    <div><strong
+                                            style="color:var(--white);display:block;margin-bottom:4px;">Multi-Factor
+                                            Scoring Formula</strong>
+                                        <span style="color:var(--muted);">Final Score = <strong
+                                                style="color:var(--cyan);">Semantic Similarity</strong> + <strong
+                                                style="color:var(--cyan);">Skill Overlap</strong> + <strong
+                                                style="color:var(--cyan);">Experience Match</strong></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-4 fragment fade-up" style="display:flex;align-items:center;">
+                            <div class="ppt-card"
+                                style="width:100%;text-align:center;padding:28px;border-top:3px solid #ce90ff;height:100%;display:flex;flex-direction:column;justify-content:center;gap:14px;">
+                                <div
+                                    style="font-size:var(--fs-label);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ce90ff;">
+                                    Vector Storage</div>
+                                <div style="font-size:var(--fs-h1);color:var(--white);"><i
+                                        class="fa-solid fa-database"></i></div>
+                                <div style="font-size:var(--fs-h3);font-weight:700;color:var(--white);">Qdrant VectorDB
+                                </div>
+                                <div style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">
+                                    High-dimensional embeddings for fast semantic similarity search</div>
+                                <div class="divider" style="margin:6px auto;"></div>
+                                <div style="font-size:var(--fs-label);color:var(--muted);">
+                                    Two collections:<br>
+                                    <strong style="color:var(--blue-glow);">recommend-jobs</strong> &nbsp;|&nbsp;
+                                    <strong style="color:var(--gold);">recommend-candidates</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">08 / AI
+                        Engine</span></div>
+            </section>
+
+            <!-- End of 08_architecture_ai.html -->
+
+            <!-- Start of 09_conclusion.html -->
+            <!-- ============================================================
+     SLIDE — Conclusion
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+                    <div>
+                        <p class="section-label">Conclusion</p>
+                        <p class="slide-title-text">The Future of Recruitment</p>
+                    </div>
+                </div>
+
+                <div class="slide-body">
+                    <div class="grid-3" style="margin-bottom:24px;">
+                        <div class="fragment fade-up ppt-card"
+                            style="text-align:center;border-top:3px solid var(--blue);">
+                            <div class="icon-circle blue"
+                                style="margin:0 auto 14px;width:52px;height:52px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-object-ungroup"></i></div>
+                            <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:10px;color:var(--text);">
+                                Unified Experience</h4>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Eliminating data
+                                silos by unifying discovery and pipeline management in a single platform.</p>
+                        </div>
+                        <div class="fragment fade-up ppt-card"
+                            style="text-align:center;border-top:3px solid var(--gold);">
+                            <div class="icon-circle gold"
+                                style="margin:0 auto 14px;width:52px;height:52px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-chart-pie"></i></div>
+                            <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:10px;color:var(--text);">
+                                Intelligent Decisions</h4>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">Empowering hiring
+                                decisions with intelligent data, not manual guesses or keyword filters.</p>
+                        </div>
+                        <div class="fragment fade-up ppt-card" style="text-align:center;border-top:3px solid #00e676;">
+                            <div class="icon-circle green"
+                                style="margin:0 auto 14px;width:52px;height:52px;font-size:var(--fs-h2);"><i
+                                    class="fa-solid fa-rocket"></i></div>
+                            <h4 style="font-size:var(--fs-p);font-weight:700;margin-bottom:10px;color:var(--text);">
+                                Production Ready</h4>
+                            <p style="font-size:var(--fs-label);color:var(--muted);line-height:1.6;">A robust, scalable,
+                                cloud-native system deployed and tested for real-world usage.</p>
+                        </div>
+                    </div>
+
+                    <div class="fragment fade-up" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
+                        <div class="stat-box ppt-card" style="padding:16px;">
+                            <div class="stat-num">40+</div>
+                            <div class="stat-label">Pages & UI Screens</div>
+                        </div>
+                        <div class="stat-box ppt-card" style="padding:16px;">
+                            <div class="stat-num">22+</div>
+                            <div class="stat-label">Database Entities</div>
+                        </div>
+                        <div class="stat-box ppt-card" style="padding:16px;">
+                            <div class="stat-num">18</div>
+                            <div class="stat-label">Backend Modules</div>
+                        </div>
+                        <div class="stat-box ppt-card" style="padding:16px;">
+                            <div class="stat-num" style="color:var(--gold);">6</div>
+                            <div class="stat-label">Pipeline Stages</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span
+                        class="footer-page">Conclusion</span></div>
+            </section>
+
+            <!-- End of 09_conclusion.html -->
+
+            <!-- Start of 10_diagrams.html -->
+            <!-- ============================================================
+     DIAGRAMS TRANSITION SLIDE
+============================================================ -->
+            <section data-transition="fade" data-background-color="#040910">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(45,126,247,0.1) 0%, transparent 65%);pointer-events:none;">
+                    </div>
+                    <div class="cover-top-bar" style="position:absolute;top:0;left:0;right:0;"></div>
+                    <div style="position:relative;z-index:1;">
+                        <div class="icon-circle blue"
+                            style="width:72px;height:72px;font-size:var(--fs-h2);margin:0 auto 24px;">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <p
+                            style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-glow);margin-bottom:14px;">
+                            System Design</p>
+                        <h2 style="font-size:var(--fs-h2);font-weight:900;color:var(--white);margin-bottom:16px;">
+                            Architecture Diagrams</h2>
+                        <div class="divider" style="margin:0 auto 20px;"></div>
+                        <p style="font-size:var(--fs-p);color:var(--muted);">Frontend UI/UX · Backend Architecture · AI
+                            Engine</p>
+                        <p style="font-size:var(--fs-label);color:var(--border);margin-top:12px;"><i
+                                class="fa-solid fa-hand-pointer" style="margin-right:6px;"></i>Click any image to zoom
+                            fullscreen</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+     PART 1: FRONTEND & USER EXPERIENCE
+============================================================ -->
+
+            <!-- DIAGRAM 1 — UI/UX Wireframes -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(0,198,255,0.2);border-color:rgba(0,198,255,0.4);color:var(--cyan);"><i
+                            class="fa-solid fa-pen-ruler"></i></div>
+                    <div>
+                        <p class="section-label">Diagram 1 / 7 · Frontend Design</p>
+                        <p class="slide-title-text">UI/UX Wireframe Samples</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Diagrams/IMG-20260603-WA0008.jpg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(0,198,255,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.5);"
+                        alt="UI/UX Wireframe Samples">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">UI/UX
+                        Wireframes</span></div>
+            </section>
+
+            <!-- DIAGRAM 2 — Navigation Flow -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(0,198,255,0.2);border-color:rgba(0,198,255,0.4);color:var(--cyan);"><i
+                            class="fa-solid fa-route"></i></div>
+                    <div>
+                        <p class="section-label">Diagram 2 / 7 · Frontend Experience</p>
+                        <p class="slide-title-text">Navigation Flow Diagram — Scout Talent Platform</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Diagrams/IMG-20260603-WA0009.jpg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(0,198,255,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.5);"
+                        alt="Navigation Flow Diagram — Scout Talent Platform">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Navigation
+                        Flow</span></div>
+            </section>
+
+            <!-- DIAGRAM 3 — Job Application Activity -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(0,198,255,0.2);border-color:rgba(0,198,255,0.4);color:var(--cyan);"><i
+                            class="fa-solid fa-arrows-spin"></i></div>
+                    <div>
+                        <p class="section-label">Diagram 3 / 7 · Frontend Process Flow</p>
+                        <p class="slide-title-text">Activity Diagram — Job Application Flow</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Diagrams/IMG-20260603-WA0005.jpg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(0,198,255,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.5);"
+                        alt="Activity Diagram — Job Application Flow">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Job
+                        Application Flow</span></div>
+            </section>
+
+            <!-- ============================================================
+     PART 2: BACKEND & DATA STRUCTURE
+============================================================ -->
+
+            <!-- DIAGRAM 4 — UML Class -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(45,126,247,0.2);border-color:rgba(45,126,247,0.4);color:var(--blue-glow);">
+                        <i class="fa-solid fa-sitemap"></i></div>
+                    <div>
+                        <p class="section-label">Diagram 4 / 7 · Backend Architecture</p>
+                        <p class="slide-title-text">UML Class Diagram — Scout Talent Core Entities</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Diagrams/IMG-20260603-WA0004.jpg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.5);"
+                        alt="UML Class Diagram — Scout Talent Core Entities">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">UML Class
+                        Diagram</span></div>
+            </section>
+
+            <!-- DIAGRAM 5 — Authentication Sequence -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(45,126,247,0.2);border-color:rgba(45,126,247,0.4);color:var(--blue-glow);">
+                        <i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <p class="section-label">Diagram 5 / 7 · Backend Security</p>
+                        <p class="slide-title-text">Sequence Diagram — Authentication Flow</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Diagrams/IMG-20260603-WA0006.jpg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.5);"
+                        alt="Sequence Diagram — Authentication Flow">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span
+                        class="footer-page">Authentication Flow</span></div>
+            </section>
+
+            <!-- DIAGRAM 6 — JWT Token Lifecycle -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(45,126,247,0.2);border-color:rgba(45,126,247,0.4);color:var(--blue-glow);">
+                        <i class="fa-solid fa-key"></i></div>
+                    <div>
+                        <p class="section-label">Diagram 6 / 7 · Backend Identity</p>
+                        <p class="slide-title-text">JWT Authentication Token Lifecycle</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Diagrams/IMG-20260603-WA0010.jpg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.5);"
+                        alt="JWT Authentication Token Lifecycle">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">JWT Token
+                        Lifecycle</span></div>
+            </section>
+
+            <!-- ============================================================
+     PART 3: AI ENGINE
+============================================================ -->
+
+            <!-- DIAGRAM 7 — AI Recommendation Sequence -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(252,163,17,0.2);border-color:rgba(252,163,17,0.4);color:var(--gold);"><i
+                            class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <p class="section-label">Diagram 7 / 7 · AI Engine</p>
+                        <p class="slide-title-text">Sequence Diagram — AI Recommendation Flow</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Diagrams/IMG-20260603-WA0007.jpg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.5);"
+                        alt="Sequence Diagram — AI Recommendation Flow">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">AI
+                        Recommendation Flow</span></div>
+            </section>
+            <!-- End of 10_diagrams.html -->
+
+            <!-- Start of 11_screens.html -->
+            <!-- ============================================================
+     SCREENS TRANSITION SLIDE
+============================================================ -->
+            <section data-transition="fade" data-background-color="#040910">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,198,255,0.1) 0%, transparent 65%);pointer-events:none;">
+                    </div>
+                    <div class="cover-top-bar" style="position:absolute;top:0;left:0;right:0;"></div>
+                    <div style="position:relative;z-index:1;">
+                        <div class="icon-circle cyan"
+                            style="width:72px;height:72px;font-size:var(--fs-h2);margin:0 auto 24px;">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <p
+                            style="font-size:var(--fs-label);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;">
+                            Live System</p>
+                        <h2 style="font-size:var(--fs-h2);font-weight:900;color:var(--white);margin-bottom:16px;">
+                            Platform Screens</h2>
+                        <div
+                            style="width:80px;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue-glow));border-radius:2px;margin:0 auto 20px;">
+                        </div>
+                        <p style="font-size:var(--fs-p);color:var(--muted);">A walkthrough of the actual HAKEEM Scout
+                            Talent interface</p>
+                        <p style="font-size:var(--fs-label);color:var(--border);margin-top:12px;"><i
+                                class="fa-solid fa-hand-pointer" style="margin-right:6px;"></i>Click any image to zoom
+                            fullscreen</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN 1 — Landing Page: First Impression of HAKEEM
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(0,198,255,0.2);border-color:rgba(0,198,255,0.4);color:var(--cyan);"><i
+                            class="fa-solid fa-house"></i></div>
+                    <div>
+                        <p class="section-label">Screen 1 / 13 · Public</p>
+                        <p class="slide-title-text">Landing Page — First Impression & Marketing Entry Point</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Screens/Landing page.png"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(0,198,255,0.3);box-shadow:0 8px 40px rgba(0,0,0,0.6);"
+                        alt="Landing Page — Public Entry & Marketing Page">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Landing Page
+                        — Public Entry</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN 2 & 3 — Registration & Login: Account Access Flow
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(0,198,255,0.2);border-color:rgba(0,198,255,0.4);color:var(--cyan);"><i
+                            class="fa-solid fa-user-plus"></i></div>
+                    <div>
+                        <p class="section-label">Screens 2 & 3 / 13 · Authentication</p>
+                        <p class="slide-title-text">User Registration · Login — Secure Account Access Flow</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;">
+                    <div class="grid-2" style="gap:14px;align-items:center;height:100%;">
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--cyan);font-weight:700;letter-spacing:1px;">
+                                New Account Registration</p>
+                            <img src="Screens/Registier.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(0,198,255,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.5);"
+                                alt="User Registration Page — Email, Role Selection & Google OAuth">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--blue-glow);font-weight:700;letter-spacing:1px;">
+                                Secure Login — JWT + Google OAuth2</p>
+                            <img src="Screens/login.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(0,198,255,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.5);"
+                                alt="Login Page — JWT Authentication with Google OAuth2">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Registration
+                        & Login — Auth Flow</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN 4 — Applicant Dashboard: Personalized Overview
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(45,126,247,0.2);border-color:rgba(45,126,247,0.4);color:var(--blue-glow);">
+                        <i class="fa-solid fa-gauge"></i></div>
+                    <div>
+                        <p class="section-label">Screen 4 / 13 · Candidate</p>
+                        <p class="slide-title-text">Applicant Dashboard — Personalized Job Activity Overview</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Screens/Applicante Dashboard.jpeg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 8px 40px rgba(0,0,0,0.6);"
+                        alt="Applicant Dashboard — Personalized Activity, Stats & Job Suggestions">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Applicant
+                        Dashboard — Overview</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN 5 & 6 — Candidate Profile + CV Upload
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(45,126,247,0.2);border-color:rgba(45,126,247,0.4);color:var(--blue-glow);">
+                        <i class="fa-solid fa-id-card"></i></div>
+                    <div>
+                        <p class="section-label">Screens 5 & 6 / 13 · Candidate Profile</p>
+                        <p class="slide-title-text">Profile Management · CV Upload & Selection for AI Matching</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;">
+                    <div class="grid-2" style="gap:14px;align-items:center;height:100%;">
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--blue-glow);font-weight:700;letter-spacing:1px;">
+                                Professional Profile — Skills & Experience</p>
+                            <img src="Screens/Applicante Profile.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Applicant Profile — Professional Info, Skills & Career Summary">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--cyan);font-weight:700;letter-spacing:1px;">
+                                CV Upload — Triggers AI Semantic Analysis</p>
+                            <img src="Screens/Upload cv or select cv.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="CV Upload — Select or Upload CV for AI Matching">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Profile & CV
+                        Upload — AI Trigger</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN 7 & 8 — Job Listings + Application Submission
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(45,126,247,0.2);border-color:rgba(45,126,247,0.4);color:var(--blue-glow);">
+                        <i class="fa-solid fa-briefcase"></i></div>
+                    <div>
+                        <p class="section-label">Screens 7 & 8 / 13 · Job Discovery</p>
+                        <p class="slide-title-text">Job Listings Browse · Application Submission with CV Selection</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;">
+                    <div class="grid-2" style="gap:14px;align-items:center;height:100%;">
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--blue-glow);font-weight:700;letter-spacing:1px;">
+                                AI-Powered Job Listings & Search</p>
+                            <img src="Screens/Job Posts.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Job Listings — Filtered & AI-Recommended Job Posts">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--cyan);font-weight:700;letter-spacing:1px;">
+                                Submit Application — Select CV per Role</p>
+                            <img src="Screens/Job Application.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Job Application Submission — CV Selection & Role-Specific Apply">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Job Browse &
+                        Application</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN 9 & 10 — Application Timeline + AI Candidate Analysis
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(252,163,17,0.2);border-color:rgba(252,163,17,0.4);color:var(--gold);"><i
+                            class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <p class="section-label">Screens 9 & 10 / 13 · Tracking & AI</p>
+                        <p class="slide-title-text">Application Status Timeline · AI-Powered Candidate Skill Analysis
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;">
+                    <div class="grid-2" style="gap:14px;align-items:center;height:100%;">
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--gold);font-weight:700;letter-spacing:1px;">
+                                6-Stage Application Status Timeline</p>
+                            <img src="Screens/Application Timeline.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Application Status Timeline — 6 Stages: New → Screening → Interview → Offered → Hired">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:#ce90ff;font-weight:700;letter-spacing:1px;">
+                                AI Candidate Analysis — Semantic Match Score</p>
+                            <img src="Screens/Candidate Analyze.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="AI Candidate Analysis — Skills, Experience & Semantic Similarity Score">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Application
+                        Timeline · AI Analysis</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN 11 & 12 — Candidate: Interview Schedule + Job Offers
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(45,126,247,0.2);border-color:rgba(45,126,247,0.4);color:var(--blue-glow);">
+                        <i class="fa-solid fa-calendar-check"></i></div>
+                    <div>
+                        <p class="section-label">Screens 11 & 12 / 13 · Candidate Final Stages</p>
+                        <p class="slide-title-text">Interview Schedule Management · Job Offer Review & Response</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;">
+                    <div class="grid-2" style="gap:14px;align-items:center;height:100%;">
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--blue-glow);font-weight:700;letter-spacing:1px;">
+                                Scheduled Interviews — Time & Format</p>
+                            <img src="Screens/Applicante Interview.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Candidate Interview Schedule — Date, Time, Format & Feedback">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:#00e676;font-weight:700;letter-spacing:1px;">
+                                Job Offer Inbox — Accept or Decline</p>
+                            <img src="Screens/Applicante Offers.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(45,126,247,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Job Offer Inbox — Salary, Role, Accept/Decline Actions">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Interviews &
+                        Offers — Candidate Side</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN — Real-Time Notifications (WebSocket)
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(0,198,255,0.2);border-color:rgba(0,198,255,0.4);color:var(--cyan);"><i
+                            class="fa-solid fa-bell"></i></div>
+                    <div>
+                        <p class="section-label">Screen · Real-Time Feature</p>
+                        <p class="slide-title-text">Real-Time Notifications — Instant WebSocket-Powered Status Updates
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Screens/Notfication.jpeg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(0,198,255,0.3);box-shadow:0 8px 40px rgba(0,0,0,0.6);"
+                        alt="Real-Time Notifications — WebSocket-Powered Application Status Updates">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Real-Time
+                        Notifications — WebSocket</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN — Company Dashboard: Hiring Overview & Analytics
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(252,163,17,0.2);border-color:rgba(252,163,17,0.4);color:var(--gold);"><i
+                            class="fa-solid fa-building"></i></div>
+                    <div>
+                        <p class="section-label">Screen · Company</p>
+                        <p class="slide-title-text">Company Dashboard — Hiring Overview, Stats & Activity Feed</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Screens/Company DashBoard.jpeg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 8px 40px rgba(0,0,0,0.6);"
+                        alt="Company Dashboard — Hiring Stats, Active Posts & Applicant Activity">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Company
+                        Dashboard — Hiring HQ</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN — Manage Posts + Recruitment Pipeline Board
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(252,163,17,0.2);border-color:rgba(252,163,17,0.4);color:var(--gold);"><i
+                            class="fa-solid fa-filter"></i></div>
+                    <div>
+                        <p class="section-label">Screens · Company Job Management</p>
+                        <p class="slide-title-text">Job Posts Management · 6-Stage Recruitment Pipeline Board</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;">
+                    <div class="grid-2" style="gap:14px;align-items:center;height:100%;">
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--gold);font-weight:700;letter-spacing:1px;">
+                                Create, Edit & Manage Job Listings</p>
+                            <img src="Screens/Company Manage Posts.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Company Manage Job Posts — Create, Edit, Publish & Close Listings">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--cyan);font-weight:700;letter-spacing:1px;">
+                                Kanban-Style 6-Stage Pipeline Tracker</p>
+                            <img src="Screens/Job Pipline.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Job Pipeline — Kanban Applicant Tracker Across 6 Stages">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Job
+                        Management & Pipeline Board</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREEN — AI Candidate Recommendations for Companies
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(206,144,255,0.2);border-color:rgba(206,144,255,0.4);color:#ce90ff;"><i
+                            class="fa-solid fa-robot"></i></div>
+                    <div>
+                        <p class="section-label">Screen · AI for Companies</p>
+                        <p class="slide-title-text">AI Candidate Recommendations — Ranked Applicant Suggestions by Match
+                            Score</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;align-items:center;justify-content:center;">
+                    <img src="Screens/Recommendation Candidate.jpeg"
+                        style="max-height:550px;max-width:100%;object-fit:contain;border-radius:10px;border:1px solid rgba(206,144,255,0.3);box-shadow:0 8px 40px rgba(0,0,0,0.6);"
+                        alt="AI Candidate Recommendations — Ranked Applicants by Semantic Match Score">
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">AI
+                        Recommendations — Ranked by Match Score</span></div>
+            </section>
+
+            <!-- ============================================================
+     SCREENS — Company: Interview Scheduling + Offer Issuance
+============================================================ -->
+            <section data-transition="fade">
+                <div class="slide-header">
+                    <div class="title-icon"
+                        style="background:rgba(252,163,17,0.2);border-color:rgba(252,163,17,0.4);color:var(--gold);"><i
+                            class="fa-solid fa-handshake"></i></div>
+                    <div>
+                        <p class="section-label">Screens · Company Final Stages</p>
+                        <p class="slide-title-text">Interview Scheduling & Notes · Job Offer Issuance & Tracking</p>
+                    </div>
+                </div>
+                <div class="slide-body" style="padding:10px 20px;">
+                    <div class="grid-2" style="gap:14px;align-items:center;height:100%;">
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:var(--gold);font-weight:700;letter-spacing:1px;">
+                                Schedule Interviews & Add Evaluation Notes</p>
+                            <img src="Screens/Company Interviews.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Company Interview Management — Schedule, Notes & Feedback">
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <p
+                                style="font-size:var(--fs-label);text-align:center;color:#00e676;font-weight:700;letter-spacing:1px;">
+                                Issue, Send & Track Job Offers</p>
+                            <img src="Screens/Company Offers.jpeg"
+                                style="width:100%;max-height:490px;object-fit:contain;border-radius:10px;border:1px solid rgba(252,163,17,0.3);box-shadow:0 4px 20px rgba(0,0,0,0.4);"
+                                alt="Company Job Offer Management — Issue Offers & Track Acceptance Status">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-footer"><span class="footer-brand">HAKEEM</span><span class="footer-page">Interview
+                        Scheduling & Offer Management</span></div>
+            </section>
+            <!-- End of 11_screens.html -->
+
+            <!-- Start of 12_live_demo_thanks.html -->
+            <!-- ============================================================
+     SLIDE — Live Demo Transition
+============================================================ -->
+            <section data-transition="zoom" data-background-color="var(--bg)">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;overflow:hidden;">
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(45,126,247,0.15) 0%, transparent 60%);pointer-events:none;">
+                    </div>
+                    <div class="cover-top-bar" style="position:absolute;top:0;left:0;right:0;"></div>
+
+                    <div style="position:relative;z-index:1;">
+                        <div class="icon-circle blue"
+                            style="width:90px;height:90px;font-size:var(--fs-h1);margin:0 auto 28px;box-shadow:0 0 40px rgba(45,126,247,0.4);">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <h2 style="font-size:var(--fs-h2);font-weight:300;color:var(--muted);margin-bottom:10px;">From
+                            Concept to</h2>
+                        <h1
+                            style="font-size:var(--fs-hero);font-weight:900;color:var(--text);margin-bottom:30px;letter-spacing:2px;text-transform:uppercase;">
+                            Reality</h1>
+                        <div class="divider" style="margin:0 auto 30px;"></div>
+
+                        <p class="fragment fade-in"
+                            style="font-size:var(--fs-h3);color:var(--muted);margin-bottom:28px;">Now, let's see HAKEEM
+                            in action.</p>
+
+                        <div class="fragment fade-up">
+                            <a href="https://hakeem-scout-talent.netlify.app/" target="_blank"
+                                style="display:inline-flex;align-items:center;gap:14px;background:linear-gradient(135deg, var(--blue), var(--cyan));padding:18px 42px;border-radius:100px;font-size:var(--fs-h3);font-weight:800;color:#fff;text-decoration:none;box-shadow:0 8px 30px rgba(45,126,247,0.4);transition:transform 0.2s, box-shadow 0.2s;">
+                                <i class="fa-solid fa-play"></i> Launch Live Demo
+                            </a>
+                            <p
+                                style="font-size:var(--fs-small);color:var(--muted);margin-top:12px;font-family:monospace;">
+                                https://hakeem-scout-talent.netlify.app/</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+     SLIDE — Thank You
+============================================================ -->
+            <section data-transition="fade" data-background-color="#020408">
+                <div
+                    style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;text-align:center;position:relative;">
+                    <div
+                        style="position:absolute;inset:0;background:url('https://www.transparenttextures.com/patterns/stardust.png');opacity:0.2;pointer-events:none;">
+                    </div>
+                    <div class="cover-top-bar" style="position:absolute;top:0;left:0;right:0;"></div>
+
+                    <h1
+                        style="font-size:var(--fs-hero);font-weight:900;background:linear-gradient(90deg, var(--blue), var(--cyan), var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;">
+                        Thank You!</h1>
+                    <p style="font-size:var(--fs-h3);color:var(--muted);margin-bottom:40px;">For your time, attention,
+                        and support.</p>
+
+                    <div style="display:flex;gap:30px;justify-content:center;margin-bottom:50px;">
+                        <div class="icon-circle"
+                            style="width:50px;height:50px;font-size:var(--fs-h2);color:var(--muted);border-color:var(--border);">
+                            <i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="icon-circle"
+                            style="width:50px;height:50px;font-size:var(--fs-h2);color:var(--muted);border-color:var(--border);">
+                            <i class="fa-solid fa-code"></i></div>
+                        <div class="icon-circle"
+                            style="width:50px;height:50px;font-size:var(--fs-h2);color:var(--muted);border-color:var(--border);">
+                            <i class="fa-solid fa-users"></i></div>
+                    </div>
+
+                    <div style="border-top:1px solid var(--border);padding-top:30px;width:60%;">
+                        <p style="font-size:var(--fs-p);font-weight:700;color:var(--blue-glow);margin-bottom:8px;">
+                            HAKEEM Scout Talent</p>
+                        <p style="font-size:var(--fs-label);color:var(--muted);">Faculty of Computers and Artificial
+                            Intelligence</p>
+                        <p style="font-size:var(--fs-label);color:var(--muted);">Matrouh University · 2025 / 2026</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- End of 12_live_demo_thanks.html -->
+
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        // Initialize Reveal
+        Reveal.initialize({
+            hash: true,
+            transition: 'fade',
+            transitionSpeed: 'fast',
+            controls: true,
+            progress: true,
+            center: false,
+            width: 1280,
+            height: 720,
+            margin: 0.06,
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+        });
+
+        /* ===== Settings Panel Logic ===== */
+        const btn = document.getElementById('settings-btn');
+        const panel = document.getElementById('settings-panel');
+
+        const zoomSlider = document.getElementById('zoom-slider');
+        const zoomVal = document.getElementById('zoom-val');
+
+        const tsHeadSlider = document.getElementById('ts-head-slider');
+        const tsHeadVal = document.getElementById('ts-head-val');
+        const tsBodySlider = document.getElementById('ts-body-slider');
+        const tsBodyVal = document.getElementById('ts-body-val');
+        const tsLabelSlider = document.getElementById('ts-label-slider');
+        const tsLabelVal = document.getElementById('ts-label-val');
+
+        // Toggle panel
+        btn.addEventListener('click', () => panel.classList.toggle('open'));
+
+        // Keyboard shortcut: S
+        document.addEventListener('keydown', e => {
+            if (e.key === 's' || e.key === 'S') {
+                if (e.target.tagName !== 'INPUT') panel.classList.toggle('open');
+            }
+        });
+
+        // Typography Scale Sliders
+        const rootVars = document.documentElement.style;
+
+        tsHeadSlider.addEventListener('input', () => {
+            const v = tsHeadSlider.value;
+            tsHeadVal.textContent = v + '%';
+            rootVars.setProperty('--fs-hero', (3.8 * v / 100) + 'em');
+            rootVars.setProperty('--fs-h1', (2.8 * v / 100) + 'em');
+            rootVars.setProperty('--fs-h2', (1.8 * v / 100) + 'em');
+        });
+
+        tsBodySlider.addEventListener('input', () => {
+            const v = tsBodySlider.value;
+            tsBodyVal.textContent = v + '%';
+            rootVars.setProperty('--fs-h3', (1.0 * v / 100) + 'em');
+            rootVars.setProperty('--fs-p', (0.75 * v / 100) + 'em');
+        });
+
+        tsLabelSlider.addEventListener('input', () => {
+            const v = tsLabelSlider.value;
+            tsLabelVal.textContent = v + '%';
+            rootVars.setProperty('--fs-label', (0.55 * v / 100) + 'em');
+            rootVars.setProperty('--fs-small', (0.45 * v / 100) + 'em');
+        });
+
+        // Zoom / scale slider (changes Reveal scale)
+        zoomSlider.addEventListener('input', () => {
+            const v = zoomSlider.value;
+            zoomVal.textContent = v + '%';
+            const scale = v / 100;
+            const slides = document.querySelector('.reveal .slides');
+            slides.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        });
+
+        // Theme presets
+        const themes = {
+            navy: { nav: '#0d1b3e', body: '#0a0a1a', blue: '#2d7ef7', glow: '#4facfe' },
+            dark: { nav: '#080808', body: '#000000', blue: '#2d7ef7', glow: '#4facfe' },
+            indigo: { nav: '#1a0a3e', body: '#0d0520', blue: '#7c3aed', glow: '#a78bfa' },
+            slate: { nav: '#1e2a3a', body: '#0f1923', blue: '#38bdf8', glow: '#7dd3fc' },
+            light: 'light' // special case
+        };
+
+        function applyTheme(name) {
+            const r = document.documentElement;
+            // Reset inline styles if switching to light or standard themes
+            r.style.removeProperty('--navy');
+            r.style.removeProperty('--blue');
+            r.style.removeProperty('--blue-glow');
+            document.body.style.background = '';
+            document.querySelector('.reveal').style.background = '';
+            document.querySelectorAll('.reveal .slides > section').forEach(s => s.style.background = '');
+
+            if (name === 'light') {
+                r.setAttribute('data-theme', 'light');
+            } else {
+                r.removeAttribute('data-theme');
+                const t = themes[name];
+                r.style.setProperty('--navy', t.nav);
+                r.style.setProperty('--blue', t.blue);
+                r.style.setProperty('--blue-glow', t.glow);
+                document.body.style.background = t.body;
+                document.querySelector('.reveal').style.background = t.body;
+                document.querySelectorAll('.reveal .slides > section').forEach(s => {
+                    s.style.background = t.nav;
+                });
+            }
+
+            // Update active button
+            document.querySelectorAll('[id^="t-"]').forEach(b => b.classList.remove('active'));
+            document.getElementById('t-' + name)?.classList.add('active');
+        }
+
+        function applyTransition(name) {
+            Reveal.configure({ transition: name });
+            document.querySelectorAll('[id^="tr-"]').forEach(b => b.classList.remove('active'));
+            document.getElementById('tr-' + name)?.classList.add('active');
+        }
+
+        /* ===== Image Lightbox ===== */
+        const lb = document.getElementById('img-lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCap = document.getElementById('lb-caption');
+
+        function openLightbox(src, caption) {
+            lbImg.src = src;
+            lbCap.textContent = caption || '';
+            lb.classList.add('open');
+        }
+
+        function closeLightbox() {
+            lb.classList.remove('open');
+            lbImg.src = '';
+        }
+
+        // Click overlay background to close (not the image itself)
+        lb.addEventListener('click', e => { if (e.target !== lbImg) closeLightbox(); });
+
+        // Escape key to close
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && lb.classList.contains('open')) {
+                e.stopImmediatePropagation();
+                closeLightbox();
+            }
+        }, true);
+
+        // Attach click handler to all slide images after Reveal is ready
+        Reveal.on('ready', () => {
+            document.querySelectorAll('.reveal .slides img').forEach(img => {
+                img.addEventListener('click', e => {
+                    e.stopPropagation();
+                    openLightbox(img.src, img.alt);
+                });
+            });
+        });
+
+        // Also re-attach on slide change (for lazy-loaded content)
+        Reveal.on('slidechanged', () => {
+            document.querySelectorAll('.reveal .slides img').forEach(img => {
+                img.onclick = e => { e.stopPropagation(); openLightbox(img.src, img.alt); };
+            });
+        });
+    </script>
+
+    <!-- Lightbox Overlay -->
+    <div id="img-lightbox">
+        <button id="lb-close" onclick="closeLightbox()" title="Close (Esc)">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lb-img" src="" alt="">
+        <div id="lb-caption"></div>
+    </div>
+
+</body>
+
+</html>
